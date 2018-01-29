@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/controllers/AthleteController.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/controllers/GalleryController.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/models/Gallery.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/models/Tag.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/admin/athletes/athletes-edit.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/admin/athletes/athletes.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/admin/image-gallery/index.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/admin/image-gallery/show.blade.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/admin/news/index.blade.php" charset="UTF-8" />
+  </component>
+</project>
