@@ -287,4 +287,82 @@ class GalleryController extends BaseController
         }
     }
 
+    /**
+     * show admin video gallery
+     * @return mixed
+     */
+    public function showVideoGallery()
+    {
+        $video_gallery_data = Video::orderBy('id', 'DESC')->get();
+
+        return View::make('admin.video-gallery')->with(['page_title' => 'Administracija',
+                                                        'video_gallery_data' => $video_gallery_data
+        ]);
+    }
+
+    /**
+     * add url to video gallery
+     * @return mixed
+     */
+    public function addVideoToGallery()
+    {
+        $form_data = ['video_url' => e(Input::get('video_url'))];
+        $token = Input::get('_token');
+
+        //check if csrf token is valid
+        if(Session::token() != $token){
+            return Redirect::back()->withErrors('Nevažeći CSRF token');
+        }
+
+        $validator = Validator::make($form_data, Video::$rules, Video::$messages);
+        //check validation results and category if ok
+        if($validator->fails()){
+            return Redirect::back()->withErrors($validator->getMessageBag()->toArray())->withInput();
+        }
+        else{
+            //youtube video url format
+            $url_prefix = 'https://www.youtube-nocookie.com/embed/';
+            $video_url = $form_data['video_url'];
+            $url_suffix = '?ecver=1&fs=1&wmode=opaque';
+            $youtube_url = $url_prefix.$video_url.$url_suffix;
+
+            $video = new Video;
+            $video->video_url = $youtube_url;
+            $video->save();
+        }
+
+        return Redirect::to(route('admin-video-gallery'))->with(['success' => 'Video uspješno dodan u galeriju']);
+    }
+
+    /**
+     * delete video from video gallery
+     * @param null $id
+     * @return mixed
+     */
+    public function deleteVideoGalleryUrl($id = null)
+    {
+        if($id == null){
+            return Redirect::back()->withErrors('Odabrani video ne postoji');
+        }
+        else{
+            // find video in database
+            $video = Video::findOrFail(e($id));
+
+            if($video){
+                try{
+                    $video->delete();
+                }
+                catch(Exception $e){
+                    return Redirect::back()->withErrors('Video nije mogao biti obrisan');
+                }
+
+                //redirect on finish
+                return Redirect::to(route('admin-video-gallery'))->with(['success' => 'Video je uspješno obrisan']);
+            }
+            else{
+                return Redirect::to(route('admin-video-gallery'))->withErrors('Odabrani Video ne postoji');
+            }
+        }
+    }
+
 }

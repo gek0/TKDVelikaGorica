@@ -39,6 +39,10 @@ Route::group(['before' => 'auth'], function() {
 		Route::get('galerija-brisanje-slike/{id}', ['as' => 'admin-image-gallery-image-delete', 'uses' => 'GalleryController@deleteImageGalleryImage'])->where(['id' => '[0-9]+']);
 		Route::get('galerija-brisanje-galerije/{id}', ['as' => 'admin-image-gallery-delete', 'uses' => 'GalleryController@deleteImageGallery'])->where(['id' => '[0-9]+']);
 
+		Route::post('video-galerija', ['as' => 'admin-video-galleryPOST', 'uses' => 'GalleryController@addVideoToGallery']);
+		Route::get('video-galerija', ['as' => 'admin-video-gallery', 'uses' => 'GalleryController@showVideoGallery']);
+		Route::get('video-galerija-brisanje/{id}', ['as' => 'admin-video-gallery-delete', 'uses' => 'GalleryController@deleteVideoGalleryUrl'])->where(['id' => '[0-9]+']);
+
 		Route::post('sportasi', ['as' => 'admin-athletesPOST', 'uses' => 'AthleteController@addAthlete']);
 		Route::get('sportasi', ['as' => 'admin-athletes', 'uses' => 'AthleteController@showAthletes']);
 		Route::post('sportasi-izmjena', ['as' => 'admin-athletes-editPOST', 'uses' => 'AthleteController@updateAthlete']);

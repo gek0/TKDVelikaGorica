@@ -47,7 +47,13 @@
                 </div>
             </section>
         @else
-            <h3 class="text-center">Trenutno nema galerija slika.</h3>
+            <section id="image_gallery">
+                <div class="container-fluid">
+                    <div class="row padded text-center">
+                        <h3>Trenutno <strong>nema</strong> dodanih galerija slika.</h3>
+                    </div>
+                </div>
+            </section>
         @endif
     </div>
 </div>
