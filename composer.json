@@ -9,7 +9,8 @@
 	    "anhskohbo/no-captcha": "1.*",
 	  	"cviebrock/eloquent-sluggable": "2.*",
 	    "intervention/image": "^2.3",
-	  	"roumen/feed": "2.8.*"
+	  	"roumen/feed": "2.8.*",
+	  	"maddhatter/laravel-fullcalendar": "~0.1"
 	},
 	"autoload": {
 		"classmap": [

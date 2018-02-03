@@ -1,27 +1,33 @@
 @include('shared-layout.head')
 
     <!-- scripts -->
+    {{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment-with-locales.min.js', ['charset' => 'utf-8']) }}
     {{ HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', ['charset' => 'utf-8']) }}
     {{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.2/sweetalert2.all.min.js', ['charset' => 'utf-8']) }}
     {{ HTML::script('js/bootstrap.min.js', ['charset' => 'utf-8']) }}
     {{ HTML::script('js/bootstrap-select.min.js', ['charset' => 'utf-8']) }}
     {{ HTML::script('js/modernizr-2.6.2.min.js', ['charset' => 'utf-8']) }}
     {{ HTML::script('js/jquery.lazyload.min.js', ['charset' => 'utf-8']) }}
+    {{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.2/fullcalendar.min.js', ['charset' => 'utf-8']) }}
+    {{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.2/locale/hr.js', ['charset' => 'utf-8']) }}
     <!--[if lt IE 9]>
     {{ HTML::script('js/html5shiv.min.js', ['charset' => 'utf-8']) }}
     {{ HTML::script('js/respond.min.js', ['charset' => 'utf-8']) }}
     <![endif]-->
 
     <!-- stylesheets -->
+    {{ HTML::style('css/reset.css') }}
     {{ HTML::style('css/bootstrap.min.css') }}
-    {{ HTML::style('css/admin-main.css') }}
-    {{ HTML::style('css/style.css') }}
-    {{ HTML::style('css/queries.css') }}
+    {{ HTML::style('https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.2/sweetalert2.min.css') }}
+    {{ HTML::style('https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.2/fullcalendar.min.css') }}
+    {{ HTML::style('https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.2/fullcalendar.print.css', ['media' => 'print']) }}
     {{ HTML::style('wysibb/theme/default/wbbtheme.css') }}
     {{ HTML::style('css/dataTables.bootstrap.min.css') }}
     {{ HTML::style('css/responsive.dataTables.min.css') }}
     {{ HTML::style('css/rowReorder.dataTables.min.css') }}
-    {{ HTML::style('https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.2/sweetalert2.min.css') }}
+    {{ HTML::style('css/admin-main.css') }}
+    {{ HTML::style('css/style.css') }}
+    {{ HTML::style('css/queries.css') }}
 </head>
 <body>
 
@@ -55,6 +61,7 @@
                             {{ HTML::smartRoute_link('/', 'Pregled stranice', '<i class="fa fa-search" aria-hidden="true"></i>') }}
                             {{ HTML::smartRoute_link('admin/naslovnica', 'Naslovnica', '<i class="fa fa-home" aria-hidden="true"></i>') }}
                             {{ HTML::smartRoute_link('admin/obavijesti', 'Obavijesti', '<i class="fa fa-pencil" aria-hidden="true"></i>') }}
+                            {{ HTML::smartRoute_link('admin/kalendar', 'Kalendar', '<i class="fa fa-calendar" aria-hidden="true"></i>') }}
                             {{ HTML::smartRoute_link('admin/galerija', 'Galerija', '<i class="fa fa-camera" aria-hidden="true"></i>') }}
                             {{ HTML::smartRoute_link('admin/video-galerija', 'Video galerija', '<i class="fa fa-video-camera" aria-hidden="true"></i>') }}
                             {{ HTML::smartRoute_link('admin/sportasi', 'Treneri - Sportaši', '<i class="fa fa-trophy" aria-hidden="true"></i>') }}

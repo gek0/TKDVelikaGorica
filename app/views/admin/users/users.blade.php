@@ -33,12 +33,15 @@
 
         <div class="text-center space">
             <h3>Trenutni korisnici:</h3>
-            <table class="table table-bordered table-responsive table-striped table-hover">
-                <tr>
-                    <td style="width: 20%;"><i class="fa fa-user" aria-hidden="true"></i> Korisničko ime</td>
-                    <td><i class="fa fa-envelope" aria-hidden="true"></i> E-mail</td>
-                    <td><i class="fa fa-cog fa-spin" aria-hidden="true"></i> Opcije</td>
-                </tr>
+            <table class="table table-bordered table-responsive table-striped table-hover table-condensed" id="data-table">
+                <thead>
+                    <tr>
+                        <td style="width: 20%;"><i class="fa fa-user" aria-hidden="true"></i> Korisničko ime</td>
+                        <td><i class="fa fa-envelope" aria-hidden="true"></i> E-mail</td>
+                        <td><i class="fa fa-cog fa-spin" aria-hidden="true"></i> Opcije</td>
+                    </tr>
+                </thead>
+                <tbody>
                 @foreach($users_data as $user)
                     <tr>
                         <td>{{ $user->username }}</td>
@@ -59,11 +62,13 @@
                         </td>
                     </tr>
                 @endforeach
+                </tbody>
             </table>
         </div>
     </div>
 </div>
 
+@push('custom-scripts')
 <script>
     jQuery(document).ready(function(){
         /**
@@ -99,5 +104,6 @@
         });
     });
 </script>
+@endpush
 
 @include('admin.layout.footer')

@@ -32,6 +32,12 @@ Route::group(['before' => 'auth'], function() {
 		Route::get('obavijesti/brisanje/{slug}', ['as' => 'admin-news-delete', 'uses' => 'NewsController@deleteNews'])->where(['slug' => '[\w\-šđčćžŠĐČĆŽ]+']);
 		Route::get('obavijesti/brisanje-slike-obavijesti/{id}', ['as' => 'admin-news-gallery-image-delete', 'uses' => 'NewsController@deleteNewsGalleryImage'])->where(['id' => '[0-9]+']);
 
+		Route::get('kalendar', ['as' => 'admin-calendar', 'uses' => 'EventController@showCalendar']);
+		Route::post('kalendar', ['as' => 'admin-calendarPOST', 'uses' => 'EventController@addEventToCalendar']);
+		Route::post('kalendar-izmjena', ['as' => 'admin-event-editPOST', 'uses' => 'EventController@updateEvent']);
+		Route::get('kalendar/izmjena/{id}', ['as' => 'admin-event-edit', 'uses' => 'EventController@showUpdateEvent'])->where(['id' => '[0-9]+']);
+		Route::get('kalendar-brisanje/{id}', ['as' => 'admin-event-delete', 'uses' => 'EventController@deleteEvent'])->where(['id' => '[0-9]+']);
+
 		Route::get('galerija', ['as' => 'admin-image-galleries', 'uses' => 'GalleryController@showImageGalleries']);
 		Route::post('galerija', ['as' => 'admin-image-galleriesPOST', 'uses' => 'GalleryController@createImageGallery']);
 		Route::get('galerija/pregled/{slug}', ['as' => 'admin-image-gallery-view', 'uses' => 'GalleryController@viewImageGallery'])->where(['slug' => '[\w\-šđčćžŠĐČĆŽ]+']);

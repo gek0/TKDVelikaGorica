@@ -3,6 +3,7 @@
     <!-- scripts -->
     {{ HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', ['charset' => 'utf-8']) }}
     {{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.2/sweetalert2.all.min.js', ['charset' => 'utf-8']) }}
+    {{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.1/fullcalendar.min.js', ['charset' => 'utf-8']) }}
     {{ HTML::script('js/bootstrap.min.js', ['charset' => 'utf-8']) }}
     {{ HTML::script('js/bootstrap-select.min.js', ['charset' => 'utf-8']) }}
     {{ HTML::script('js/modernizr-2.6.2.min.js', ['charset' => 'utf-8']) }}
@@ -15,10 +16,12 @@
     <!-- stylesheets -->
     {{ HTML::style('css/reset.css') }}
     {{ HTML::style('css/bootstrap.min.css') }}
+    {{ HTML::style('https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.2/sweetalert2.min.css') }}
+    {{ HTML::style('https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.1/fullcalendar.min.css') }}
+    {{ HTML::style('https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.1/fullcalendar.print.css', ['media' => 'print']) }}
     {{ HTML::style('css/main.css') }}
     {{ HTML::style('css/style.css') }}
     {{ HTML::style('css/queries.css') }}
-    {{ HTML::style('https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.2/sweetalert2.min.css') }}
 </head>
 <body>
 

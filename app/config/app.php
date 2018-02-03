@@ -125,7 +125,8 @@ return array(
 		'Anhskohbo\NoCaptcha\NoCaptchaServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
 		'Cviebrock\EloquentSluggable\SluggableServiceProvider',
-		'Roumen\Feed\FeedServiceProvider'
+		'Roumen\Feed\FeedServiceProvider',
+		'MaddHatter\LaravelFullcalendar\ServiceProvider',
 	),
 
 	/*
@@ -194,7 +195,8 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 		'BBCode' 		  => 'Golonka\BBCode\Facades\BBCodeParser',
 		'Image'			  => 'Intervention\Image\Facades\Image',
-		'Feed' 			  => 'Roumen\Feed\Facades\Feed'
+		'Feed' 			  => 'Roumen\Feed\Facades\Feed',
+		'Calendar' 		=> 'MaddHatter\LaravelFullcalendar\Facades\Calendar',
 	),
 
 );

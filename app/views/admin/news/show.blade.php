@@ -97,6 +97,7 @@
     </div>
 </div>
 
+@push('custom-scripts')
 <script>
     jQuery(document).ready(function(){
         /**
@@ -164,5 +165,6 @@
         });
     });
 </script>
+@endpush
 
 @include('admin.layout.footer')

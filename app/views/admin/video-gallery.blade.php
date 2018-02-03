@@ -5,8 +5,8 @@
         {{ Form::open(['url' => route('admin-video-galleryPOST'), 'role' => 'form', 'id' => 'admin-video-gallery', 'class' => 'form-element']) }}
 
         <div class="form-group">
-            {{ Form::label('video_url', 'Video URL:') }}
-            {{ Form::text('video_url', null, ['class' => 'form-input-control', 'placeholder' => 'Video URL (YouTube)', 'id' => 'video_url', 'required' => 'true']) }}
+            <label for="video_url">YouTube video URL (samo 11 znakova na kraju linka, npr: https://www.youtube.com/watch?v=<span class="red">fNJrtaykBws</span>):</label>
+            {{ Form::text('video_url', null, ['class' => 'form-input-control', 'placeholder' => 'Video URL (YouTube)', 'id' => 'video_url', 'maxlength' => 11, 'required' => 'true']) }}
         </div>
         <div class="text-center">
             <button type="submit" class="btn btn-submit btn-submit-full">Spremi izmjene <i class="fa fa-check"></i></button>
