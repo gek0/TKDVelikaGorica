@@ -21,7 +21,10 @@ Route::group(['before' => 'auth'], function() {
 
 	Route::group(['prefix' => 'admin'], function() {
 		Route::get('naslovnica', ['as' => 'admin-page-home', 'uses' => 'AdminController@showPageHome']);
-		Route::post('naslovnica-izmjena', ['as' => 'admin-cover-editPOST', 'uses' => 'AdminController@updateCover']);
+		Route::post('naslovnica', ['as' => 'admin-cover-editPOST', 'uses' => 'AdminController@updateCover']);
+
+		Route::get('o-nama', ['as' => 'admin-about-us', 'uses' => 'AdminController@showAboutUs']);
+		Route::post('o-nama', ['as' => 'admin-about-usPOST', 'uses' => 'AdminController@updateAboutUs']);
 
 		Route::get('obavijesti', ['as' => 'admin-news', 'uses' => 'NewsController@showNews']);
 		Route::get('obavijesti/nova', ['as' => 'admin-news-add', 'uses' => 'NewsController@showNewNewsForm']);
@@ -54,6 +57,9 @@ Route::group(['before' => 'auth'], function() {
 		Route::post('sportasi-izmjena', ['as' => 'admin-athletes-editPOST', 'uses' => 'AthleteController@updateAthlete']);
 		Route::get('sportasi/izmjena/{id}', ['as' => 'admin-athletes-edit', 'uses' => 'AthleteController@showUpdateAthlete'])->where(['id' => '[0-9]+']);
 		Route::get('sportasi-brisanje/{id}', ['as' => 'admin-athletes-delete', 'uses' => 'AthleteController@deleteAthlete'])->where(['id' => '[0-9]+']);
+
+		Route::post('info', ['as' => 'admin-infoPOST', 'uses' => 'AdminController@updateInfo']);
+		Route::get('info', ['as' => 'admin-info', 'uses' => 'AdminController@showInfo']);
 
 		Route::post('korisnici', ['as' => 'admin-usersPOST', 'uses' => 'UserController@addUser']);
 		Route::get('korisnici', ['as' => 'admin-users', 'uses' => 'UserController@showUsers']);

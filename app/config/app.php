@@ -197,6 +197,7 @@ return array(
 		'Image'			  => 'Intervention\Image\Facades\Image',
 		'Feed' 			  => 'Roumen\Feed\Facades\Feed',
 		'Calendar' 		=> 'MaddHatter\LaravelFullcalendar\Facades\Calendar',
+		'Carbon' 		=> 'Carbon\Carbon',
 	),
 
 );

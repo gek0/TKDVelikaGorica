@@ -60,11 +60,13 @@
                         <ul class="nav navbar-nav">
                             {{ HTML::smartRoute_link('/', 'Pregled stranice', '<i class="fa fa-search" aria-hidden="true"></i>') }}
                             {{ HTML::smartRoute_link('admin/naslovnica', 'Naslovnica', '<i class="fa fa-home" aria-hidden="true"></i>') }}
+                            {{ HTML::smartRoute_link('admin/o-nama', 'O nama', '<i class="fa fa-info" aria-hidden="true"></i>') }}
                             {{ HTML::smartRoute_link('admin/obavijesti', 'Obavijesti', '<i class="fa fa-pencil" aria-hidden="true"></i>') }}
                             {{ HTML::smartRoute_link('admin/kalendar', 'Kalendar', '<i class="fa fa-calendar" aria-hidden="true"></i>') }}
                             {{ HTML::smartRoute_link('admin/galerija', 'Galerija', '<i class="fa fa-camera" aria-hidden="true"></i>') }}
                             {{ HTML::smartRoute_link('admin/video-galerija', 'Video galerija', '<i class="fa fa-video-camera" aria-hidden="true"></i>') }}
                             {{ HTML::smartRoute_link('admin/sportasi', 'Treneri - Sportaši', '<i class="fa fa-trophy" aria-hidden="true"></i>') }}
+                            {{ HTML::smartRoute_link('admin/info', 'Info', '<i class="fa fa-info" aria-hidden="true"></i>') }}
                             {{ HTML::smartRoute_link('admin/korisnici', 'Korisnici', '<i class="fa fa-users" aria-hidden="true"></i>') }}
                             {{ HTML::smartRoute_link('odjava', 'Odjava', '<i class="fa fa-sign-out" aria-hidden="true"></i>') }}
                         </ul>

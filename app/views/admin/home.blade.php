@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-lg-8 col-lg-offset-2" id="layout-block-main">
         <div id="cover-image">
-            {{ Form::open(['url' => route('admin-cover-editPOST'), 'role' => 'form', 'id' => 'admin-cover-image', 'files' => true, 'class' => 'form-element']) }}
+            {{ Form::open(['url' => route('admin-cover-editPOST'), 'role' => 'form', 'id' => 'admin-cover-image', 'class' => 'form-element']) }}
             <div class="form-group">
                 {{ Form::label('cover_title', 'Naslov:') }}
                 {{ Form::text('cover_title', $cover_data['cover_title'], ['class' => 'form-input-control', 'placeholder' => 'Naslov']) }}
