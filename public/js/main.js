@@ -36,59 +36,7 @@ function fitVideo() {
 };
 
 jQuery(document).ready(function($){
-    //toggle 3d navigation
-    $('.cd-3d-nav-trigger').on('click', function(){
-        toggle3dBlock(!$('.cd-header').hasClass('nav-is-visible'));
-    });
 
-    //select a new item from the 3d navigation
-    $('.cd-3d-nav').on('click', 'a', function(){
-        var selected = $(this);
-        selected.parent('li').addClass('cd-selected').siblings('li').removeClass('cd-selected');
-        updateSelectedNav('close');
-    });
-
-    $(window).on('resize', function(){
-        window.requestAnimationFrame(updateSelectedNav);
-    });
-
-    function toggle3dBlock(addOrRemove) {
-        if(typeof(addOrRemove)==='undefined') addOrRemove = true;
-        $('.cd-header').toggleClass('nav-is-visible', addOrRemove);
-        $('.cd-3d-nav-container').toggleClass('nav-is-visible', addOrRemove);
-        $('main').toggleClass('nav-is-visible', addOrRemove).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
-            //fix marker position when opening the menu (after a window resize)
-            addOrRemove && updateSelectedNav();
-        });
-    }
-
-    //this function update the .cd-marker position
-    function updateSelectedNav(type) {
-        var selectedItem = $('.cd-selected'),
-            selectedItemPosition = selectedItem.index() + 1,
-            leftPosition = selectedItem.offset().left,
-            backgroundColor = selectedItem.data('color'),
-            marker = $('.cd-marker');
-
-        marker.removeClassPrefix('color').addClass('color-'+ selectedItemPosition).css({
-            'left': leftPosition,
-        });
-        if( type == 'close') {
-            marker.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
-                toggle3dBlock(false);
-            });
-        }
-    }
-
-    $.fn.removeClassPrefix = function(prefix) {
-        this.each(function(i, el) {
-            var classes = el.className.split(" ").filter(function(c) {
-                return c.lastIndexOf(prefix, 0) !== 0;
-            });
-            el.className = $.trim(classes.join(" "));
-        });
-        return this;
-    };
 });
 
 jQuery(document).ready(function(){
@@ -266,6 +214,91 @@ jQuery(document).ready(function(){
     }
 
 });
+
+/**
+ * contact page form
+ */
+(function ($) {
+    "use strict";
+
+    /*==================================================================
+     [ Focus Contact2 ]*/
+    $('.input-full-flex').each(function(){
+        $(this).on('blur', function(){
+            if($(this).val().trim() != "") {
+                $(this).addClass('has-val');
+            }
+            else {
+                $(this).removeClass('has-val');
+            }
+        })
+    })
+
+
+    /*==================================================================
+     [ Validate after type ]*/
+    $('.validate-input .input-full-flex').each(function(){
+        $(this).on('blur', function(){
+            if(validate(this) == false){
+                showValidate(this);
+            }
+            else {
+                $(this).parent().addClass('true-validate');
+            }
+        })
+    })
+
+    /*==================================================================
+     [ Validate ]*/
+    var input = $('.validate-input .input-full-flex');
+
+    $('.validate-form').on('submit',function(){
+        var check = true;
+
+        for(var i=0; i<input.length; i++) {
+            if(validate(input[i]) == false){
+                showValidate(input[i]);
+                check=false;
+            }
+        }
+
+        return check;
+    });
+
+
+    $('.validate-form .input-full-flex').each(function(){
+        $(this).focus(function(){
+            hideValidate(this);
+            $(this).parent().removeClass('true-validate');
+        });
+    });
+
+    function validate (input) {
+        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
+            if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
+                return false;
+            }
+        }
+        else {
+            if($(input).val().trim() == ''){
+                return false;
+            }
+        }
+    }
+
+    function showValidate(input) {
+        var thisAlert = $(input).parent();
+
+        $(thisAlert).addClass('alert-validate');
+    }
+
+    function hideValidate(input) {
+        var thisAlert = $(input).parent();
+
+        $(thisAlert).removeClass('alert-validate');
+    }
+})(jQuery);
+
 
 /**
 * bootstrap checkbox icons

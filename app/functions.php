@@ -14,6 +14,19 @@ HTML::macro('smartRoute_link', function($route, $text, $icon = '') {
 });
 
 /**
+ * link with active route state - another design
+ */
+HTML::macro('smartRoute_link_v2', function($route, $text, $icon = '') {
+    if(Request::is($route) || Request::is($route.'/*')) {
+        $active = " class='active-prim'";
+    }
+    else {
+        $active = "";
+    }
+    return '<li'.$active.'><a href="'.url($route).'">'.$icon.' '.$text.'</a></li>';
+});
+
+/**
  * @param $string
  * @return string
  * safe name, no croatian letters

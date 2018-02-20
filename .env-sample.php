@@ -29,7 +29,5 @@ return array(
     'IMAGE_GALLERY_UPLOAD_DIR' => 'image_gallery_uploads',
     'NEWS_UPLOAD_DIR' => 'news_uploads',
     'ATHLETES_UPLOAD_DIR' => 'athletes_uploads',
-    'DEFAULT_MAP_LAT' => '',
-    'DEFAULT_MAP_LNG' => '',
-    'DEFAULT_MAP_ZOOM_LEVEL' => '11',
+    'DEFAULT_MAP_ZOOM_LEVEL' => '13',
 );

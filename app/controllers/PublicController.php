@@ -10,7 +10,7 @@ class PublicController extends BaseController {
         $this->beforeFilter('crfs', ['on' => ['post', 'put', 'patch', 'delete']]);
     }
 
-    protected $news_paginate = 9;
+    protected $news_paginate = 5;
     protected $sort_data = ['added_desc' => 'Najnovije vijesti',
                             'added_asc' => 'Najstarije vijesti',
                             'visits_desc' => 'S najviše pregleda',
@@ -27,6 +27,19 @@ class PublicController extends BaseController {
 
         return View::make('public.index')->with(['page_title' => 'Dobrodošli',
                                                 'cover_data' => $cover_data
+        ]);
+    }
+
+    /**
+     * show contact page
+     * @return mixed
+     */
+    public function showContact()
+    {
+        $info_data = Info::first();
+
+        return View::make('public.contact')->with(['page_title' => 'Kontakt',
+                                                'info_data' => $info_data
         ]);
     }
 
@@ -86,8 +99,9 @@ class PublicController extends BaseController {
                     //send email
                     try{
                         Mail::send('email', $user_data, function($message) use ($user_data){
+                            $info_data = Info::first();
                             $message->from($user_data['email'], $user_data['full_name']);
-                            $message->to(getenv('OWNER_CONTACT_EMAIL'))->subject(getenv('WEB_EMAIL_SUBJECT').' - '.$user_data['subject']);
+                            $message->to($info_data->owner_contact_email)->subject($info_data->web_email_subject.' - '.$user_data['subject']);
                         });
                         return Response::json(['status' => 'success']);
                     }
@@ -154,6 +168,26 @@ class PublicController extends BaseController {
 
         return View::make('public.tags-list')->with(['page_title' => 'Lista tagova',
                                                 'tags_data' => $tags_data
+        ]);
+    }
+
+    /**
+     * show news
+     * @return mixed
+     */
+    public function showNews()
+    {
+        //default form sort value
+        $news_text_sort = null;
+        $sort_category = null;
+        $sort_data = $this->sort_data;
+        $news_data = News::orderBy('id', 'DESC')->paginate($this->news_paginate);
+
+        return View::make('public.news')->with(['page_title' => 'Obavijesti',
+                                            'news_text_sort' => $news_text_sort,
+                                            'sort_data' => $sort_data,
+                                            'sort_category' => $sort_category,
+                                            'news_data' => $news_data
         ]);
     }
 }

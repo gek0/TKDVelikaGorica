@@ -162,6 +162,8 @@ class AdminController extends BaseController
             $info->facebook_url = $form_data['facebook_url'];
             $info->twitter_url = $form_data['twitter_url'];
             $info->youtube_url = $form_data['youtube_url'];
+            $info->map_lat = $form_data['map_lat'];
+            $info->map_lng = $form_data['map_lng'];
             $info->save();
         }
 

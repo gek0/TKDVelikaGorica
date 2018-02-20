@@ -26,7 +26,6 @@
     {{ HTML::style('css/responsive.dataTables.min.css') }}
     {{ HTML::style('css/rowReorder.dataTables.min.css') }}
     {{ HTML::style('css/admin-main.css') }}
-    {{ HTML::style('css/style.css') }}
     {{ HTML::style('css/queries.css') }}
 </head>
 <body>

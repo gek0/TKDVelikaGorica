@@ -127,7 +127,8 @@ $(document).ready(function(){
     $('#data-table').DataTable({
         "responsive": true,
         "paging": true,
-        "bInfo": false,
+        "processing": true,
+        "bInfo": true,
         "language": {
             "lengthMenu": 'Prikaži _MENU_ zapisa po stranici',
             "zeroRecords": 'Niti jedan zapis nije pronađen',

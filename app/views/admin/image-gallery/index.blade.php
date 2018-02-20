@@ -28,12 +28,12 @@
                     <div class="row padded text-center">
                         <h2>Galerije slika ({{ $image_gallery_data->count() }})</h2>
                         @foreach($image_gallery_data as $gallery)
-                            <div class="col-lg-4 col-sm-4 col-6 small-marg">
+                            <div class="col-lg-4 col-sm-4 col-6 small-marg gallery-cont">
                                 <div class="framed with-overlay">
                                     @if(count($gallery->images))
                                         <img src="{{ url(getenv('IMAGE_GALLERY_UPLOAD_DIR').'/'.$gallery->path.'/'.$gallery->images()->first()->file_name) }}" alt="{{ imageAlt($gallery->images()->first()->file_name) }}" style="width:100%">
                                     @else
-                                        <img src="{{ asset('css/assets/images/no_image_gallery.png') }}" alt="No image available" style="width:100%">
+                                        <img src="{{ asset('css/assets/images/no_image_gallery.png') }}" alt="Nema slike" style="width:100%">
                                     @endif
                                         <div class="overlay">
                                         <a href="{{ route('admin-image-gallery-view', $gallery->slug) }}" class="overlay-link">

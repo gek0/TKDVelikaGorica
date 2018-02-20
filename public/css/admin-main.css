@@ -8,8 +8,10 @@
 @import 'animate.css';
 @import 'bootstrap-select.min.css';
 @import 'fileinput.min.css';
-@import '../fonts/font-awesome/css/font-awesome.min.css';
-@import url(//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300&subset=latin,latin-ext);
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300&subset=latin,latin-ext');
 *,
 :after,
 :before {
@@ -712,6 +714,10 @@ span.color-event-box{
     margin: 0 auto;
 }
 
+.gallery-cont img{
+    height: 200px;
+}
+
 /**
 *   pagination
 */
@@ -1130,12 +1136,6 @@ a.btn-primary{
 .btn-submit-edit:visited,
 .btn-submit:visited {
     color: #fff
-}
-.btn span.glyphicon {
-    opacity: 0;
-}
-.btn.active span.glyphicon {
-    opacity: 1;
 }
 .checkbox {
     padding-left: 20px

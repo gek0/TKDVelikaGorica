@@ -61,7 +61,7 @@ class GalleryController extends BaseController
             //create new gallery
             $gallery = new Gallery;
             $gallery->name = $gallery_name['name'];
-            $gallery->path = Str::limit(safe_name($gallery_name['name']), 25);
+            $gallery->path = substr(safe_name(cro_name_strings($gallery_name['name'])), 0, 50);
             $gallery->save();
 
             $gallery_id = $gallery->id;
@@ -75,21 +75,26 @@ class GalleryController extends BaseController
                 }
 
                 foreach($gallery_images as $img){
-                    $file_name = $gallery->path.'_galerija_'.Str::random(5);
-                    $file_extension = $img->getClientOriginalExtension();
-                    $full_name = $file_name.'.'.$file_extension;
-                    $file_size = $img->getSize();
+                    try{
+                        $file_name = $gallery->path.'_galerija_'.Str::random(5);
+                        $file_extension = $img->getClientOriginalExtension();
+                        $full_name = $file_name.'.'.$file_extension;
+                        $file_size = $img->getSize();
 
-                    $file_uploaded = $img->move($path, $full_name);
-                    $image_resize = Image::make($path.$full_name)->widen(800, function ($constraint) {
-                        $constraint->upsize();
-                    })->save();
-                    if($file_uploaded){
-                        $image = new GalleryImage;
-                        $image->gallery_id = $gallery_id;
-                        $image->file_name = $full_name;
-                        $image->file_size = $file_size;
-                        $image->save();
+                        $file_uploaded = $img->move($path, $full_name);
+                        $image_resize = Image::make($path.$full_name)->widen(800, function ($constraint) {
+                            $constraint->upsize();
+                        })->save();
+                        if($file_uploaded){
+                            $image = new GalleryImage;
+                            $image->gallery_id = $gallery_id;
+                            $image->file_name = $full_name;
+                            $image->file_size = $file_size;
+                            $image->save();
+                        }
+                    }
+                    catch(Exception $e){
+                        continue;
                     }
                 }
 

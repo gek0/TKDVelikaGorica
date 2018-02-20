@@ -4,6 +4,7 @@
     {{ HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', ['charset' => 'utf-8']) }}
     {{ HTML::script('js/modernizr-2.6.2.min.js', ['charset' => 'utf-8']) }}
     {{ HTML::script('js/jquery.lazyload.min.js', ['charset' => 'utf-8']) }}
+    {{ HTML::script('js/pace.min.js', ['charset' => 'utf-8']) }}
     <!--[if lt IE 9]>
     {{ HTML::script('js/html5shiv.min.js', ['charset' => 'utf-8']) }}
     {{ HTML::script('js/respond.min.js', ['charset' => 'utf-8']) }}
@@ -28,22 +29,21 @@
     </div>
 </div>
 
-<div class="space-x3"></div>
-<section class="logo-placeholder">
+<section class="logo-placeholder space-x3">
     {{ HTML::image('css/assets/images/logo_main_big.png', 'Logo', ['title' => getenv('WEB_NAME'), 'class' => 'img-responsive']) }}
-    <h1>{{ $page_title }}</h1>
+    <h1 class="main-full-title inverted-title">{{ $page_title }}</h1>
 </section>
 
-<div class="login-container">
-    <div class="row form">
+<div class="row form login-container text-center">
+    <div class="col-lg-6 col-lg-offset-3">
         {{ Form::open(['route' => 'loginPOST', 'role' => 'form', 'id' => 'adminLogin', 'class' => 'form-element']) }}
         <div class="form-group">
-            {{ Form::text('username', null, ['placeholder' => 'Korisničko ime', 'id' => 'username', 'required']) }}
+            {{ Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Korisničko ime', 'id' => 'username', 'required']) }}
         </div>
         <div class="form-group">
-            {{ Form::password('password', ['placeholder' => 'Lozinka', 'id' => 'password', 'required']) }}
+            {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Lozinka', 'id' => 'password', 'required']) }}
         </div>
-        <div class="form-group-login text-center">
+        <div class="form-group-login text-center space-x3">
             <div class="checkbox checkbox-primary">
                 <span class="button-checkbox">
                     <button type="button" class="btn" data-color="warning">Zapamti me na ovom računalu</button>
@@ -52,7 +52,7 @@
             </div>
         </div>
 
-        <button type="submit" class="submit-form" id="loginSubmit">Prijava <i class="fa fa-sign-in"></i></button>
+        <button type="submit" class="button-prim" id="loginSubmit">Prijava <i class="fa fa-sign-in"></i></button>
         {{ Form::close() }}
     </div>
 </div>

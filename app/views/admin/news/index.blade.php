@@ -31,7 +31,7 @@
                                 @if($item->images->count() > 0)
                                     {{ HTML::image('/'.getenv('NEWS_UPLOAD_DIR').'/'.$item->id.'/'.$item->images->first()->file_name, imageAlt($item->images->first()->file_name), ['class' => 'thumbnail img-responsive lazy']) }}
                                 @else
-                                    {{ HTML::image(URL::to('https://via.placeholder.com/500x500?text=Nema slike'), 'Nema slike', ['class' => 'thumbnail img-responsive']) }}
+                                    {{ HTML::image(asset('css/assets/images/no_image_gallery.png'), 'Nema slike', ['class' => 'thumbnail img-responsive']) }}
                                 @endif
                             </div> <!-- end news-all-header -->
                             <hr>

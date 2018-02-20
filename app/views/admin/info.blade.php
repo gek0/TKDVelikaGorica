@@ -74,6 +74,20 @@
                 </div>
             </div>
 
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ Form::label('map_lat', 'Lokacija dvorane - zemljopisna širina (latitude):') }}
+                    {{ Form::text('map_lat', $info_data['map_lat'], ['class' => 'form-input-control', 'placeholder' => 'Zemljopisna širina (latitude) npr. 43.172362', 'id' => 'map_lat', 'required' => 'true']) }}
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    {{ Form::label('map_lng', 'Lokacija dvorane - emljopisna dužina (longitude):') }}
+                    {{ Form::text('map_lng', $info_data['map_lng'], ['class' => 'form-input-control', 'placeholder' => 'Zemljopisna dužina (longitude), npr. 16.4408177', 'id' => 'map_lng', 'required' => 'true']) }}
+                </div>
+            </div>
+
             <div class="text-center">
                 <button type="submit" class="btn btn-submit btn-submit-full">Spremi izmjene <i class="fa fa-check"></i></button>
             </div>

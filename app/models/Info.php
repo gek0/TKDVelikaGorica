@@ -15,6 +15,8 @@ class Info extends Eloquent{
      *  -	facebook_url VARCHAR(255)
      *  -   twitter_url VARCHAR(255)
      *  -   youtube_url VARCHAR(255)
+     *  -   map_lat FLOAT(10,6) UNSIGNED
+     *  -   map_lng FLOAT(10,6) UNSIGNED
      *  - 	created_at TIMESTAMP
      *  - 	updated_at TIMESTAMP
      */

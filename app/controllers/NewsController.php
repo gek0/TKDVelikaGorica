@@ -159,7 +159,7 @@ class NewsController extends BaseController
 
         }
         else{
-            return Redirect::to(ruote('admin-news-add'))->withErrors($error_list)->withInput();
+            return Redirect::to(route('admin-news-add'))->withErrors($error_list)->withInput();
         }
     }
 
