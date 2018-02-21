@@ -16,30 +16,42 @@
                                     </h2>
                                 </div>
                                 <div class="meta">
-                                    <span>Objavljeno: </span>
+                                    <p>
+                                        <i class="fa far fa-calendar"></i> Objavljeno:
+                                    </p>
                                     <time class="published" datetime="{{ $item->getDateCreatedFormatedHTML() }}">
                                         <strong>{{ $item->getDateCreatedFormatedSimpler() }}</strong>
                                     </time>
+                                    <p class="text-center">
+                                        <i class="fa fas fa-eye fa-fw"></i> Pregledano:
+                                        <strong>
+                                            {{ $item->num_visited }}
+                                            @if($item->num_visited > 1)
+                                                puta
+                                            @else
+                                                put
+                                            @endif
+                                        </strong>
+                                    </p>
                                 </div>
                             </header>
-                            <a href="{{ route('news-show', $item->slug) }}" class="image featured">
+                            <a href="{{ route('news-show', $item->slug) }}" class="image featured non-bordered">
                                 @if($item->images->count() > 0)
                                     {{ HTML::image('/'.getenv('NEWS_UPLOAD_DIR').'/'.$item->id.'/'.$item->images->first()->file_name, imageAlt($item->images->first()->file_name), ['class' => 'lazy']) }}
                                 @else
                                     {{ HTML::image(asset('css/assets/images/no_image_gallery.png'), 'Nema slike') }}
                                 @endif
                             </a>
-                            <p>{{ Str::limit(removeEmptyP(nl2p((new BBCParser)->parse($item->news_body))), 350) }}</p>
-                            <footer>
-                                <ul class="actions">
-                                    <li><a href="#" class="button big">Continue Reading</a></li>
+                            <div class="space bordered-post-content">
+                                <p>{{ truncateHTML(removeEmptyP(nl2p((new BBCParser)->parse($item->news_body))), 450) }}</p>
+                            </div>
+                            <div class="text-center tags-collection space">
+                                <ul class="tags">
+                                    @foreach($item->tags as $tag)
+                                        <li>{{ $tag->slug }}</li>
+                                    @endforeach
                                 </ul>
-                                <ul class="stats">
-                                    <li><a href="#">General</a></li>
-                                    <li><a href="#" class="icon fa-heart">28</a></li>
-                                    <li><a href="#" class="icon fa-comment">128</a></li>
-                                </ul>
-                            </footer>
+                            </div>
                         </article>
                     @endforeach
                 @endforeach
@@ -62,26 +74,36 @@
 
         <section id="sidebar">
             <section id="intro">
-                {{ HTML::image('css/assets/images/logo_main.png', 'Logo', ['title' => getenv('WEB_NAME'), 'class' => 'img-responsive']) }}
+                {{ HTML::image('css/assets/images/logo_main.png', 'Logo', ['title' => getenv('WEB_NAME'), 'class' => 'img-responsive intro-img']) }}
                 <header>
                     <p>Sve obavijesti vezane za naš klub i iz svijeta taekwondoa.</p>
                 </header>
             </section>
 
-            <section>
-                <div class="mini-posts">
-
-                    <!-- Mini Post -->
-                    <article class="mini-post">
-                        <header>
-                            <h3><a href="#">Vitae sed condimentum</a></h3>
-                            <time class="published" datetime="2015-10-20">October 20, 2015</time>
-                        </header>
-                        <a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-                    </article>
-
-                </div>
-            </section>
+            @if($top_news_data->count() > 0)
+                <!-- top posts -->
+                <section>
+                    <h2>Najčitanije vijesti</h2>
+                    <div class="mini-posts">
+                        @foreach($top_news_data as $item)
+                            <article class="mini-post">
+                                <header>
+                                    <h3 class="text-center">
+                                        <a href="{{ route('news-show', $item->slug) }}">{{ $item->news_title }}</a>
+                                    </h3>
+                                </header>
+                                <a href="{{ route('news-show', $item->slug) }}" class="image">
+                                    @if($item->images->count() > 0)
+                                        {{ HTML::image('/'.getenv('NEWS_UPLOAD_DIR').'/'.$item->id.'/'.$item->images->first()->file_name, imageAlt($item->images->first()->file_name), ['class' => 'lazy']) }}
+                                    @else
+                                        {{ HTML::image(asset('css/assets/images/no_image_gallery.png'), 'Nema slike') }}
+                                    @endif
+                                </a>
+                            </article>
+                        @endforeach
+                    </div>
+                </section>
+            @endif
         </section> <!-- end #sidebar -->
     </div> <!-- end #wrapper-news -->
 </section> <!-- end .main-content -->

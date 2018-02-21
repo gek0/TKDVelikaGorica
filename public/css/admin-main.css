@@ -48,7 +48,7 @@ html {
     height: 100%
 }
 body {
-    background: rgba(255, 255, 255, 1);
+    background: rgba(255, 255, 255, 1) url('assets/images/shattered.png') repeat;
     font-family: 'Open Sans', sans-serif;
     font-size: 15px;
     line-height: 1.5;
@@ -181,6 +181,7 @@ hr {
     border-bottom: 1px solid rgba(255, 255, 255, .3)
 }
 #layout-block-main{
+    background: rgba(255, 255, 255,1);
     box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
@@ -452,6 +453,10 @@ pre {
      justify-content: center;
      align-items: center;
  }
+
+.nav > li > a{
+    padding: 15px 10px;
+}
 
 .male-btn { color: #3180e1; }
 .female-btn { color: #d71e64; }

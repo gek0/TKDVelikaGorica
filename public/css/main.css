@@ -223,53 +223,6 @@ ul, li {
 }
 
 
-/**
-*   pagination
-*/
-.pagination-centered { text-align: center; }
-
-.pagination-left { text-align: left; }
-
-.pagination-right { text-align: right; }
-
-.pagination-layout ul {
-    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
-}
-
-.pagination > li > a:focus, .pagination > li > a:hover, .pagination > li > span:focus, .pagination > li > span:hover,
-.pagination > li.disabled > a:focus, .pagination > li.disabled > a:hover, .pagination > li.disabled > span:focus, .pagination > li.disabled > span:hover{
-    border: 1px solid rgba(237, 111, 0, .25);
-}
-
-.pagination-layout ul.pagination a { color: rgba(237, 111, 0, 1); }
-
-.pagination > .disabled > a,
-.pagination > .disabled > a:focus,
-.pagination > .disabled > a:hover,
-.pagination > .disabled > span,
-.pagination > .disabled > span:focus,
-.pagination > .disabled > span:hover{
-    color: rgba(237, 111, 0, 1);
-}
-
-.pagination > .active > a,
-.pagination > .active > a:focus,
-.pagination > .active > a:hover,
-.pagination > .active > span,
-.pagination > .active > span:focus,
-.pagination > .active > span:hover {
-    background-color: rgba(237, 111, 0, .75);
-    border-color: rgba(237, 111, 0, .55);
-}
-
-.pagination > li > a{
-    color: rgba(237, 111, 0, 1) !important;
-    text-decoration: none !important;
-}
-
-
 /*
 * global notifications
 */

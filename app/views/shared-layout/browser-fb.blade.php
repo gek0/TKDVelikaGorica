@@ -12,5 +12,3 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 <!-- end facebook SDK -->
-
-<a href="#" id="back-to-top" title="Povratak na vrh">&uarr;</a>

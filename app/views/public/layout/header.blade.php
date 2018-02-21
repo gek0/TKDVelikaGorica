@@ -28,6 +28,8 @@
 
 @include('shared-layout.browser-fb')
 
+<a href="#" id="return-to-top" title="Povratak na vrh"><i class="fa far fa-chevron-up"></i></a>
+
 <div id="perspective" class="perspective effect-airbnb">
     <div class="container-wrapped">
         <div class="wrapper">

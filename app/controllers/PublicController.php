@@ -183,11 +183,15 @@ class PublicController extends BaseController {
         $sort_data = $this->sort_data;
         $news_data = News::orderBy('id', 'DESC')->paginate($this->news_paginate);
 
+        // get top 5 news for mini posts - by num of visits
+        $top_news_data = News::orderBy('num_visited', 'DESC')->limit(5)->get();
+
         return View::make('public.news')->with(['page_title' => 'Obavijesti',
                                             'news_text_sort' => $news_text_sort,
                                             'sort_data' => $sort_data,
                                             'sort_category' => $sort_category,
-                                            'news_data' => $news_data
+                                            'news_data' => $news_data,
+                                            'top_news_data' => $top_news_data
         ]);
     }
 }
