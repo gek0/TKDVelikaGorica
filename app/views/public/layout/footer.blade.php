@@ -27,12 +27,15 @@
     </nav>
 </div><!-- /perspective -->
 
+@stack('custom-news-vars')
+
 <!-- scripts -->
 {{ HTML::script('js/skel.min.js', ['charset' => 'utf-8']) }}
 {{ HTML::script('js/classie.min.js', ['charset' => 'utf-8']) }}
 {{ HTML::script('js/menu.js', ['charset' => 'utf-8']) }}
 {{ HTML::script('https://maps.googleapis.com/maps/api/js?key=AIzaSyAq_DC0fNjXxqN-dTvo6PhN_ifxBvBcCWI', ['charset' => 'utf-8']) }}
 {{ HTML::script('js/custom-map.js', ['charset' => 'utf-8']) }}
+{{ HTML::script('js/imagelightbox.min.js', ['charset' => 'utf-8']) }}
 {{ HTML::script('js/main.js', ['charset' => 'utf-8']) }}
 
 @stack('custom-scripts')

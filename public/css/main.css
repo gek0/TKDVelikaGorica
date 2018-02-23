@@ -327,8 +327,8 @@ ul, li {
 }
 .btn-submit-delete,
 .btn-primary-red{
-    border: 2px solid rgba(237, 111, 0, .5);
-    background: rgba(237, 111, 0, 1)
+    border: 2px solid rgba(237, 150, 0, 1);
+    background: rgba(237, 150, 0, 1);
 }
 .btn-submit:active,
 .btn-submit:focus,
@@ -345,8 +345,8 @@ ul, li {
 .btn-submit-delete:active,
 .btn-submit-delete:focus,
 .btn-submit-delete:hover {
-    border: 2px solid rgba(237, 111, 0, .5);
-    background: rgba(226, 80, 90, 1)
+    border: 2px solid rgba(237, 150, 0, .5);
+    background: rgba(237, 150, 0, .8)
 }
 .btn-submit-delete:active,
 .btn-submit-delete:focus,

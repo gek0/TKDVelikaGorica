@@ -60,7 +60,7 @@
                     {{ $news_data->appends(Request::except('stranica'))->links() }}
                 </div> <!-- end pagination -->
             @else
-                @if($news_text_sort)
+                @if(!$news_text_sort)
                     <div class="text-center">
                         <h2>Trenutno nema vijesti s traženim filtrom.</h2>
                     </div>
@@ -78,6 +78,25 @@
                 <header>
                     <p>Sve obavijesti vezane za naš klub i iz svijeta taekwondoa.</p>
                 </header>
+
+                <div class="row">
+                    {{ Form::open(['url' => route('news-sort'), 'method' => 'GET', 'id' => 'formSort', 'role' => 'form']) }}
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {{ Form::label('sort_option', 'Sortiranje vijesti:') }}<br>
+                                {{ Form::select('sort_option', ['Vrsta sortiranja...' => $sort_data],
+                                        $sort_category, ['class' => 'selectpicker show-tick text-left', 'data-style' => 'btn-submit-delete btn-submit-full', 'title' => 'Vrsta sortiranja...', 'data-size' => '5'])
+                                }}
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {{ Form::label('news_text_sort', 'Pretraga po naslovu vijesti:') }}
+                                {{ Form::text('news_text_sort', $news_text_sort, ['id' => 'news_text', 'class' => 'form-control', 'placeholder' => 'Naslov vijesti...', 'required']) }}
+                            </div>
+                        </div>
+                    {{ Form::close() }}
+                </div>
             </section>
 
             @if($top_news_data->count() > 0)

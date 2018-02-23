@@ -194,4 +194,127 @@ class PublicController extends BaseController {
                                             'top_news_data' => $top_news_data
         ]);
     }
+
+    /**
+     * sort news by selected category
+     * @return mixed
+     */
+    public function showFilteredSortedNews()
+    {
+        //get form data and set default sort options
+        $news_text_sort = e(Input::get('news_text_sort'));
+        $sort_category = e(Input::get('sort_option'));
+        $sort_data = $this->sort_data;
+
+        // get top 5 news for mini posts - by num of visits
+        $top_news_data = News::orderBy('num_visited', 'DESC')->limit(5)->get();
+
+        //check sort category selected in form and get data
+        switch($sort_category){
+            case 'added_desc':
+                if($news_text_sort == '') {
+                    $news_data = News::orderBy('id', 'DESC')->paginate($this->news_paginate);
+                }
+                else{
+                    $news_data = News::where('news_title', 'LIKE', '%'.$news_text_sort.'%')->orderBy('id', 'DESC')->paginate($this->news_paginate);
+                }
+                break;
+
+            case 'added_asc':
+                if($news_text_sort == '') {
+                    $news_data = News::orderBy('id', 'ASC')->paginate($this->news_paginate);
+                }
+                else{
+                    $news_data = News::where('news_title', 'LIKE', '%'.$news_text_sort.'%')->orderBy('id', 'ASC')->paginate($this->news_paginate);
+                }
+                break;
+
+            case 'visits_desc':
+                if($news_text_sort == '') {
+                    $news_data = News::orderBy('num_visited', 'DESC')->paginate($this->news_paginate);
+                }
+                else{
+                    $news_data = News::where('news_title', 'LIKE', '%'.$news_text_sort.'%')->orderBy('num_visited', 'DESC')->paginate($this->news_paginate);
+                }
+                break;
+
+            case 'visits_asc':
+                if($news_text_sort == '') {
+                    $news_data = News::orderBy('num_visited', 'ASC')->paginate($this->news_paginate);
+                }
+                else{
+                    $news_data = News::where('news_title', 'LIKE', '%'.$news_text_sort.'%')->orderBy('num_visited', 'ASC')->paginate($this->news_paginate);
+                }
+                break;
+
+            default:
+                if($news_text_sort == '') {
+                    $news_data = News::orderBy('id', 'DESC')->paginate($this->news_paginate);
+                }
+                else{
+                    $news_data = News::where('news_title', 'LIKE', '%'.$news_text_sort.'%')->orderBy('id', 'DESC')->paginate($this->news_paginate);
+                }
+        }
+
+        return View::make('public.news')->with(['page_title' => 'Obavijesti',
+                                            'news_data' => $news_data,
+                                            'sort_data' => $sort_data,
+                                            'sort_category' => $sort_category,
+                                            'news_text_sort' => $news_text_sort,
+                                            'top_news_data' => $top_news_data
+        ]);
+    }
+
+    /**
+     * view individual news
+     * @param $slug
+     * @return mixed
+     */
+    public function showIndividualNews($slug = null)
+    {
+        if ($slug !== null){
+            $news_data = News::findBySlug(e($slug));
+
+            //check if news exists
+            if($news_data){
+
+                //increment number of visits
+                if((!Session::get('read_news') || !in_array($news_data->id, Session::get('read_news')))){
+                    Session::push('read_news', $news_data->id);
+                    $news_data->increment('num_visited');
+                }
+
+                //find previous and next person after current
+                $previous_news = $news_data->previousNews();
+                $next_news = $news_data->nextNews();
+
+                //check if there are news before/after or not
+                if($previous_news){
+                    $previous_news = ['slug' => $previous_news->slug, 'news_title' => $previous_news->news_title];
+                }
+                else{
+                    $previous_news = false;
+                }
+
+                if($next_news){
+                    $next_news = ['slug' => $next_news->slug, 'news_title' => $next_news->news_title];
+                }
+                else{
+                    $next_news = false;
+                }
+
+                return View::make('public.show-news')->with(['page_title' => 'Obavijesti :: '.$news_data->news_title,
+                                                            'news_data' => $news_data,
+                                                            'previous_news' => $previous_news,
+                                                            'next_news' => $next_news
+                ]);
+            }
+            else{
+                App::abort(404, 'Članak nije pronađen.');
+            }
+        }
+        else{
+            App::abort(404, 'Članak nije pronađen.');
+        }
+    }
 }
