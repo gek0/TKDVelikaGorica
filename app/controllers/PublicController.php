@@ -8,8 +8,17 @@ class PublicController extends BaseController {
     public function __construct()
     {
         $this->beforeFilter('crfs', ['on' => ['post', 'put', 'patch', 'delete']]);
+
+        // share info data to all views - used in footer and contact page
+        $info_data = Info::first();
+        View::share('info_data', $info_data);
     }
 
+    /**
+     * @var int
+     * @var array
+     * default values for news - used in sorting, filtering and pagination
+     */
     protected $news_paginate = 5;
     protected $sort_data = ['added_desc' => 'Najnovije vijesti',
                             'added_asc' => 'Najstarije vijesti',
@@ -36,11 +45,7 @@ class PublicController extends BaseController {
      */
     public function showContact()
     {
-        $info_data = Info::first();
-
-        return View::make('public.contact')->with(['page_title' => 'Kontakt',
-                                                'info_data' => $info_data
-        ]);
+        return View::make('public.contact')->with(['page_title' => 'Kontakt']);
     }
 
     /**

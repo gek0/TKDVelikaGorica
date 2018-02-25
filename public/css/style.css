@@ -1634,7 +1634,7 @@ body.single #wrapper-news {
 #imagelightbox-loading {
   width: 2.5em;
   height: 2.5em;
-  background-color: rgba(237, 111, 0, 1);
+  background-color: rgba(237, 150, 0, 1);
   position: fixed
 }
 #imagelightbox {
@@ -1690,7 +1690,7 @@ body.single #wrapper-news {
 
 #imagelightbox-close:focus,
 #imagelightbox-close:hover {
-  background-color: rgba(237, 111, 0, .75);
+  background-color: rgba(237, 150, 0, .75);
 }
 #imagelightbox-close:after,
 #imagelightbox-close:before {
@@ -1716,7 +1716,7 @@ body.single #wrapper-news {
 .imagelightbox-arrow {
   width: 3.75em;
   height: 7.5em;
-  background-color: rgba(237, 111, 0, 1);
+  background-color: rgba(237, 150, 0, 1);
   vertical-align: middle;
   display: none;
   position: fixed;
@@ -1727,10 +1727,10 @@ body.single #wrapper-news {
 }
 .imagelightbox-arrow:focus,
 .imagelightbox-arrow:hover {
-  background-color: rgba(237, 111, 0, .75)
+  background-color: rgba(237, 150, 0, .75)
 }
 .imagelightbox-arrow:active {
-  background-color: rgba(237, 111, 0, 1)
+  background-color: rgba(237, 150, 0, 1)
 }
 .imagelightbox-arrow-left {
   left: 2.5em
@@ -1793,7 +1793,7 @@ body.single #wrapper-news {
   width: 100%;
   height: 100%;
   text-align: center;
-  color: rgba(237, 111, 0, 1);
+  color: rgba(237, 150, 0, 1);
 }
 
 .previousContent{
@@ -1810,3 +1810,59 @@ body.single #wrapper-news {
 
 .previousContent:hover{ left: 0; }
 .nextContent:hover { right: 0; }
+
+/**
+* footer
+*/
+.red{
+  color: #e42626;
+}
+#footer{
+  border-top: 4px solid rgba(237, 150, 0, 1);
+  background: rgba(60, 60, 60, 1);
+  padding: .5em;
+  width: 100%;
+  height: auto;
+  color: rgba(190, 190, 190, 1);
+}
+
+#footer a{
+  color: rgba(237, 150, 0, .75);
+}
+
+.social-icons-nav{
+  margin: .5em auto;
+  text-align: center;
+  padding: 0;
+}
+
+.social-icon{
+  display: inline-block;
+  width: 20%;
+  margin: 0 auto;
+}
+
+#footer .social-icon > a{
+  color: rgba(190, 190, 190, 1);
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+#footer .social-rss > a:hover,
+#footer .social-rss > a:active{
+  color: rgba(237, 150, 0, 1);
+}
+#footer .social-facebook > a:hover,
+#footer .social-facebook > a:active{
+  color: rgba(59, 89, 152, 1);
+}
+#footer .social-twitter > a:hover,
+#footer .social-twitter > a:active{
+  color: rgba(38, 190, 228, 1);
+}
+#footer .social-youtube > a:hover,
+#footer .social-youtube > a:active{
+  color: rgba(228, 33, 38, 1);
+}

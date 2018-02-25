@@ -1,12 +1,43 @@
             <footer id="footer" role="contentinfo">
-                <div class="container">
-                    <div class="copyright">
+                <div class="container space">
+                    <div class="row">
                         <div class="col-md-12 text-center">
-                            <p>&copy; <b>{{ getenv('WEB_NAME') }}</b>, {{ date('Y') }} | Made with <i class="fa fa-heart pulseAnim red" title="love"></i>  by <a href="{{ url('https://github.com/gek0') }}" target="_blank">Matija</a></p>
+                            <ul class="social-icons-nav">
+                                <li class="social-icon social-rss" alt="RSS" title="RSS">
+                                    <a href="{{ route('rss') }}" target="_blank">
+                                        <i class="fa fas fa-rss-square fa-gig fa-fw"></i>
+                                    </a>
+                                </li>
+                                @if($info_data->facebook_url)
+                                    <li class="social-icon social-facebook" alt="Facebook" title="Facebook">
+                                        <a href="{{ $info_data->facebook_url }}" target="_blank">
+                                            <i class="fa fab fa-facebook-square fa-gig fa-fw"></i>
+                                        </a>
+                                    </li>
+                                @endif
+                                @if($info_data->twitter_url)
+                                    <li class="social-icon social-twitter" alt="Twitter" title="Twitter">
+                                        <a href="{{ $info_data->twitter_url }}" target="_blank">
+                                            <i class="fa fab fa-twitter-square fa-gig fa-fw"></i>
+                                        </a>
+                                    </li>
+                                @endif
+                                @if($info_data->youtube_url)
+                                    <li class="social-icon social-youtube" alt="YouTube" title="YouTube">
+                                        <a href="{{ $info_data->youtube_url }}" target="_blank">
+                                            <i class="fa fab fa-youtube-square fa-gig fa-fw"></i>
+                                        </a>
+                                    </li>
+                                @endif
+                            </ul>
                         </div>
                     </div>
-                    <div class="row">
-                        ...
+                    <div class="row copyright">
+                        <div class="col-md-12 text-center">
+                            <p>&copy; <b>{{ getenv('WEB_NAME') }}</b>, {{ date('Y') }}<br>
+                                Made with <i class="fa fa-heart red" title="love"></i>  by <a href="{{ url('https://github.com/gek0') }}" target="_blank">Matija</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </footer>
