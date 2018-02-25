@@ -85,6 +85,8 @@ Route::get('prijava', ['as' => 'login', 'uses' => 'LoginController@showLogin']);
 Route::get('obavijesti', ['as' => 'news', 'uses' => 'PublicController@showNews']);
 Route::get('obavijesti/sortirano', ['as' => 'news-sort', 'uses' => 'PublicController@showFilteredSortedNews']);
 Route::get('obavijesti/pregled/{slug}', ['as' => 'news-show', 'uses' => 'PublicController@showIndividualNews'])->where(['slug' => '[\w\-šðèæžŠÐÈÆŽ]+']);
+Route::get('galerije', ['as' => 'galleries', 'uses' => 'PublicController@showGalleries']);
+Route::get('galerije/pregled/{slug}', ['as' => 'image-gallery-view', 'uses' => 'PublicController@viewImageGallery'])->where(['slug' => '[\w\-šđčćžŠĐČĆŽ]+']);
 Route::get('rss', ['as' => 'rss', 'uses' => 'PublicController@getRss']);
 Route::get('kontakt', ['as' => 'contact', 'uses' => 'PublicController@showContact']);
 Route::post('kontakt', ['as' => 'contactPOST', 'uses' => 'PublicController@sendMail']);

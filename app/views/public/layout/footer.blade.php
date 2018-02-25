@@ -53,6 +53,7 @@
             </li>
             {{ HTML::smartRoute_link_v2('/', 'Početna', '<i class="fa fas fa-home fa-fw" aria-hidden="true"></i>') }}
             {{ HTML::smartRoute_link_v2('obavijesti', 'Obavijesti', '<i class="fa fa-newspaper-o fa-fw" aria-hidden="true"></i>') }}
+            {{ HTML::smartRoute_link_v2('galerije', 'Galerije', '<i class="fa fa-picture-o fa-fw" aria-hidden="true"></i>') }}
             {{ HTML::smartRoute_link_v2('kontakt', 'Kontakt', '<i class="fa fas fa-envelope-open fa-fw" aria-hidden="true"></i>') }}
         </ul>
     </nav>

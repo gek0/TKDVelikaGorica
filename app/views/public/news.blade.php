@@ -1,7 +1,7 @@
 @include('public.layout.header')
 
 <section class="main-content">
-    <h1 class="main-full-title">Obavijesti</h1>
+    <h1 class="main-full-title">{{ $page_title }}</h1>
 
     <div id="wrapper-news">
         <div id="main-news-content">

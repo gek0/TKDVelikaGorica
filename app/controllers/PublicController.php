@@ -164,19 +164,6 @@ class PublicController extends BaseController {
     }
 
     /**
-     * show all tags
-     * @return mixed
-     */
-    public function showTagsList()
-    {
-        $tags_data = Tag::all();
-
-        return View::make('public.tags-list')->with(['page_title' => 'Lista tagova',
-                                                'tags_data' => $tags_data
-        ]);
-    }
-
-    /**
      * show news
      * @return mixed
      */
@@ -320,6 +307,46 @@ class PublicController extends BaseController {
         }
         else{
             App::abort(404, 'Članak nije pronađen.');
+        }
+    }
+
+    /**
+     * @return mixed
+     * show image galleries and all videos
+     */
+    public function showGalleries()
+    {
+        $image_galleries_data = Gallery::orderBy('id', 'DESC')->get();
+        $video_data = Video::orderBy('id', 'DESC')->get();
+
+        return View::make('public.gallery')->with(['page_title' => 'Galerije',
+                                                    'image_galleries_data' => $image_galleries_data,
+                                                    'video_data' => $video_data
+        ]);
+
+    }
+
+    /**
+     * show individual iamge gallery
+     * @return mixed
+     */
+    public function viewImageGallery($slug = null)
+    {
+        if ($slug !== null){
+            $gallery_data = Gallery::findBySlug(e($slug));
+
+            //check if news exists
+            if($gallery_data){
+                return View::make('public.gallery-show')->with(['page_title' => 'Galerije :: '.$gallery_data->name,
+                                                                    'gallery_data' => $gallery_data
+                ]);
+            }
+            else{
+                App::abort(404, 'Galerija nije pronađena.');
+            }
+        }
+        else{
+            App::abort(404, 'Galerija nije pronađena.');
         }
     }
 }

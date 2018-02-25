@@ -6,7 +6,7 @@
     <div class="wrap-contact-full-flex">
         {{ Form::open(['url' => route('contactPOST'), 'role' => 'form', 'id' => 'contact-form', 'class' => 'contact-full-flex-form validate-form']) }}
             <span class="full-flex-form-title">
-                <h1 class="to-animate text-center">Kontakt</h1>
+                <h1 class="to-animate text-center">{{ $page_title }}</h1>
             </span>
 
             <div class="contact-info-sub">
