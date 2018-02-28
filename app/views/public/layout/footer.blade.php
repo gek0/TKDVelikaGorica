@@ -1,7 +1,8 @@
             <footer id="footer" role="contentinfo">
                 <div class="container space">
                     <div class="row">
-                        <div class="col-md-12 text-center">
+                        <div class="col-md-6 text-center sponsors">
+                            <h5 class="inverted-title">Pronađite nas na društvenim mrežama</h5>
                             <ul class="social-icons-nav">
                                 <li class="social-icon social-rss" alt="RSS" title="RSS">
                                     <a href="{{ route('rss') }}" target="_blank">
@@ -31,9 +32,22 @@
                                 @endif
                             </ul>
                         </div>
+                        <div class="col-md-6 text-center sponsors">
+                            <h5 class="inverted-title">Ovim putem se želimo zahvaliti</h5>
+                            <a href="http://www.nextgrupa.hr" target="_blank">
+                                <img src="{{ asset('sponsors/next-grupa.png') }}" class="img-responsive sponsor-img">
+                            </a>
+                            <a href="https://shoebedo.com/hr/" target="_blank">
+                                <img src="{{ asset('sponsors/shoebedo.png') }}" class="img-responsive sponsor-img">
+                            </a>
+                        </div>
                     </div>
+                    <hr class="faint">
                     <div class="row copyright">
                         <div class="col-md-12 text-center">
+                            <a href="{{ route('home') }}">
+                                {{ HTML::image('css/assets/images/logo_main_small.png', 'Logo', ['title' => getenv('WEB_NAME'), 'class' => 'img-responsive footer-logo']) }}
+                            </a>
                             <p>&copy; <b>{{ getenv('WEB_NAME') }}</b>, {{ date('Y') }}<br>
                                 Made with <i class="fa fa-heart red" title="love"></i>  by <a href="{{ url('https://github.com/gek0') }}" target="_blank">Matija</a>
                             </p>
@@ -53,6 +67,7 @@
             </li>
             {{ HTML::smartRoute_link_v2('/', 'Početna', '<i class="fa fas fa-home fa-fw" aria-hidden="true"></i>') }}
             {{ HTML::smartRoute_link_v2('obavijesti', 'Obavijesti', '<i class="fa fa-newspaper-o fa-fw" aria-hidden="true"></i>') }}
+            {{ HTML::smartRoute_link_v2('sportasi', 'Sportaši', '<i class="fa fa-users fa-fw" aria-hidden="true"></i>') }}
             {{ HTML::smartRoute_link_v2('galerije', 'Galerije', '<i class="fa fa-picture-o fa-fw" aria-hidden="true"></i>') }}
             {{ HTML::smartRoute_link_v2('kontakt', 'Kontakt', '<i class="fa fas fa-envelope-open fa-fw" aria-hidden="true"></i>') }}
         </ul>

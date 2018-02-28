@@ -349,4 +349,17 @@ class PublicController extends BaseController {
             App::abort(404, 'Galerija nije pronađena.');
         }
     }
+
+    /**
+     * show athletes
+     * @return mixed
+     */
+    public function showAthletes()
+    {
+        $athletes_data = Athlete::where('athlete_type', '=', 'athlete')->orderBy('athlete_birth_date', 'DESC')->get();
+
+        return View::make('public.athletes')->with(['page_title' => 'Sportaši',
+                                                    'athletes_data' => $athletes_data
+        ]);
+    }
 }

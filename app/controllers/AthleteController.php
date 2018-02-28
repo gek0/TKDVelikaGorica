@@ -58,7 +58,8 @@ class AthleteController extends BaseController
                     'athlete_birth_date' => e(Input::get('athlete_birth_date')),
                     'athlete_gender' => e(Input::get('athlete_gender')),
                     'athlete_trophy' => e(Input::get('athlete_trophy')),
-                    'athlete_description' => e(Input::get('athlete_description'))
+                    'athlete_description' => e(Input::get('athlete_description')),
+                    'profile_image_delete' => e(Input::get('profile_image_delete'))
         ];
         $token = Input::get('_token');
         $athlete_id = e(Input::get('id'));
@@ -94,6 +95,13 @@ class AthleteController extends BaseController
                 })->save();
                 if($file_uploaded){
                     $athlete->athlete_profile_image = $full_name;
+                }
+            }
+            else{
+                // delete existing if requested
+                if(isset($form_data['profile_image_delete']) && $form_data['profile_image_delete'] == '1'){
+                    File::delete(public_path().'/'.getenv('ATHLETES_UPLOAD_DIR').'/'.$athlete->athlete_profile_image);
+                    $athlete->athlete_profile_image = null;
                 }
             }
 

@@ -69,6 +69,18 @@ jQuery(document).ready(function(){
     });
 
     /**
+    *   timeline animation
+     */
+    var leftTime = $('.left-time');
+    var rightTime = $('.right-time');
+    if(leftTime.length > 0) {
+        $(leftTime).animate({opacity: "show"}, 1500);
+    }
+    if(rightTime.length > 0) {
+        $(rightTime).animate({opacity: "show"}, 1500);
+    }
+
+    /**
      *  email ajax script for main contact form
      */
     $("#contact-form").submit(function (event) {

@@ -77,6 +77,19 @@
             </div>
         </div>
 
+        @if($athlete->athlete_profile_image)
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="checkbox checkbox-primary">
+                        <span class="button-checkbox">
+                            <button type="button" class="btn" data-color="warning">Obrisati postojeću profilnu sliku?</button>
+                            <input type="checkbox" class="hidden" autocomplete="off" id="profile_image_delete" name="profile_image_delete" value="1">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        @endif
+
         <div class="space text-center">
             {{ Form::hidden('id', $athlete->id) }}
             <button type="submit" class="btn btn-submit btn-submit-full">Spremi izmjene <i class="fa fa-check"></i></button>
