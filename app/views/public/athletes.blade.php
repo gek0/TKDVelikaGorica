@@ -11,6 +11,15 @@
                     @foreach($athletes_data as $inx => $athlete)
                         <div class="timeline-container @if($inx % 2 == 0) left-time @else right-time @endif">
                             <div class="athlete-content">
+                                    <span class="@if($inx % 2 == 0) pull-right @else pull-left @endif athlete-trophy">
+                                        <i class="fa fas fa-{{ $athlete->athlete_gender }} fa-big {{ $athlete->athlete_gender }}-btn"></i>
+                                    </span>
+
+                                @if($athlete->athlete_trophy)
+                                    <span class="@if($inx % 2 == 0) pull-left @else pull-right @endif athlete-trophy">
+                                        <i class="fa fas fa-trophy faa-tada animated fa-gig {{ $athlete->athlete_trophy }}-btn"></i>
+                                    </span>
+                                @endif
                                 <div class="row">
                                     <div class="col-md-12 athlete-image">
                                         @if($athlete->athlete_profile_image)
@@ -28,6 +37,8 @@
                                         <h4 class="athlete-birth">
                                             @if($athlete->athlete_birth_date != 0) {{ $athlete->getBirthDateFormated() }} @else n/a @endif
                                         </h4>
+
+                                        <hr>
                                         <blockquote>
                                             {{ removeEmptyP(nl2p((new BBCParser)->parse($athlete->athlete_description))) }}
                                         </blockquote>

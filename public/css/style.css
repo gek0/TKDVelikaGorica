@@ -945,10 +945,10 @@ textarea.input-full-flex {
   background-size: cover;
   background-repeat: no-repeat;
   cursor: pointer;
-  -webkit-animation: pulse 1.25s 5 cubic-bezier(0.66, 0, 0, 1);
-  -moz-animation: pulse 1.25s 5 cubic-bezier(0.66, 0, 0, 1);
-  -ms-animation: pulse 1.25s 5 cubic-bezier(0.66, 0, 0, 1);
-  animation: pulse 1.25s 5 cubic-bezier(0.66, 0, 0, 1);
+  -webkit-animation: pulseBox 1.25s 5 cubic-bezier(0.66, 0, 0, 1);
+  -moz-animation: pulseBox 1.25s 5 cubic-bezier(0.66, 0, 0, 1);
+  -ms-animation: pulseBox 1.25s 5 cubic-bezier(0.66, 0, 0, 1);
+  animation: pulseBox 1.25s 5 cubic-bezier(0.66, 0, 0, 1);
 }
 
 .pulse-button:hover{
@@ -962,10 +962,10 @@ textarea.input-full-flex {
   transition: all .5s ease-out;
 }
 
-@-webkit-keyframes pulse {to {box-shadow: 0 0 0 15px rgba(237, 200, 50, .5);}}
-@-moz-keyframes pulse {to {box-shadow: 0 0 0 15px rgba(237, 200, 50, .5);}}
-@-ms-keyframes pulse {to {box-shadow: 0 0 0 15px rgba(237, 200, 50, .5);}}
-@keyframes pulse {to {box-shadow: 0 0 0 15px rgba(237, 200, 50, .5);}}
+@-webkit-keyframes pulseBox {to {box-shadow: 0 0 0 15px rgba(237, 200, 50, .5);}}
+@-moz-keyframes pulseBox {to {box-shadow: 0 0 0 15px rgba(237, 200, 50, .5);}}
+@-ms-keyframes pulseBox {to {box-shadow: 0 0 0 15px rgba(237, 200, 50, .5);}}
+@keyframes pulseBox {to {box-shadow: 0 0 0 15px rgba(237, 200, 50, .5);}}
 
 #admin-color{
   background: rgba(150, 150, 150, 1) url('assets/images/shattered.png') repeat;
