@@ -38,10 +38,12 @@
                                             @if($athlete->athlete_birth_date != 0) {{ $athlete->getBirthDateFormated() }} @else n/a @endif
                                         </h4>
 
-                                        <hr>
-                                        <blockquote>
-                                            {{ removeEmptyP(nl2p((new BBCParser)->parse($athlete->athlete_description))) }}
-                                        </blockquote>
+                                        @if($athlete->athlete_description)
+                                            <hr>
+                                            <blockquote>
+                                                {{ removeEmptyP(nl2p((new BBCParser)->parse($athlete->athlete_description))) }}
+                                            </blockquote>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
