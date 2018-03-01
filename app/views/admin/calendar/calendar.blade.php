@@ -118,43 +118,43 @@
 </div>
 
 @push('custom-scripts')
-{{ $calendar->script() }}
+    {{ $calendar->script() }}
 
-<script>
-    jQuery(document).ready(function(){
-        /**
-         * delete event confirmation
-         */
-        $(".btn-submit-delete").click(function(event){
-            event.preventDefault();
-            var delete_url_redirect = $(this).parent().attr("href");
+    <script>
+        jQuery(document).ready(function(){
+            /**
+             * delete event confirmation
+             */
+            $(".btn-submit-delete").click(function(event){
+                event.preventDefault();
+                var delete_url_redirect = $(this).parent().attr("href");
 
-            swal({
-                title: 'Sigurno to želiš?',
-                text: 'Ova radnja je nepovratna.',
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Da',
-                cancelButtonText: 'Ne, odustani!',
-                confirmButtonClass: 'btn btn-padded-smaller btn-submit-edit',
-                cancelButtonClass: 'btn btn-padded-smaller btn-submit-delete',
-                buttonsStyling: true
-            }).then(function () {
-                window.location.href = delete_url_redirect;
-            }, function (dismiss) {
-                if (dismiss === 'cancel') {
-                    swal(
-                            'Odustanak',
-                            'Nije obrisano :)',
-                            'error'
-                    )
-                }
-            })
+                swal({
+                    title: 'Sigurno to želiš?',
+                    text: 'Ova radnja je nepovratna.',
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Da',
+                    cancelButtonText: 'Ne, odustani!',
+                    confirmButtonClass: 'btn btn-padded-smaller btn-submit-edit',
+                    cancelButtonClass: 'btn btn-padded-smaller btn-submit-delete',
+                    buttonsStyling: true
+                }).then(function () {
+                    window.location.href = delete_url_redirect;
+                }, function (dismiss) {
+                    if (dismiss === 'cancel') {
+                        swal(
+                                'Odustanak',
+                                'Nije obrisano :)',
+                                'error'
+                        )
+                    }
+                })
+            });
         });
-    });
-</script>
+    </script>
 @endpush
 
 @include('admin.layout.footer')

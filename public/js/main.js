@@ -2,22 +2,20 @@
  * main JS file
  */
 
+/**
+ * cover video
+ */
 var min_w = 300;
 var vid_w_orig;
 var vid_h_orig;
-
 $(function() {
-
     vid_w_orig = parseInt($('video').attr('width'));
     vid_h_orig = parseInt($('video').attr('height'));
-
     $(window).resize(function () { fitVideo(); });
     $(window).trigger('resize');
-
 });
 
 function fitVideo() {
-
     $('#video-viewport').width($('.fullsize-video-bg').width());
     $('#video-viewport').height($('.fullsize-video-bg').height());
 

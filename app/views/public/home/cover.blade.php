@@ -1,5 +1,5 @@
-<section class="fullsize-video-bg">
-    <div class="inner">
+<section id="cover" class="fullsize-video-bg">
+    <div class="inner-video-text">
         <div>
             @if($cover_data['cover_title'])
                 <h1 class="to-animate">{{ $cover_data['cover_title'] }}</h1>

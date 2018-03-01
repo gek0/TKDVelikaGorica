@@ -34,8 +34,19 @@ class PublicController extends BaseController {
     {
         $cover_data = Cover::first();
 
+        $events = CalendarEvent::get();
+        $events_data = [];
+        foreach($events as $e){
+            $events_data[] = Calendar::event(cro_name_strings($e->event_title), true, $e->start_time, $e->end_time, $e->id,
+                ['url' => $e->event_url, 'color' => $e->event_color, 'textColor' => '#FFFFFF']
+            );
+        }
+        $calendar = Calendar::addEvents($events_data);
+
         return View::make('public.index')->with(['page_title' => 'Dobrodošli',
-                                                'cover_data' => $cover_data
+                                                'cover_data' => $cover_data,
+                                                'events' => $events,
+                                                'calendar' => $calendar
         ]);
     }
 
