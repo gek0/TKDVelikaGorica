@@ -14,6 +14,18 @@
                 {{ Form::text('cover_subtitle', $cover_data['cover_subtitle'], ['class' => 'form-input-control', 'placeholder' => 'Podnaslov']) }}
             </div>
 
+           <div class="form-group text-center">
+                {{ Form::label('cover_logo', 'Prikaz logotipa:') }}
+                <div data-toggle="buttons">
+                    <label class="btn btn-default btn-circle btn-lg @if($cover_data['cover_logo'] === 'yes') active @endif">
+                        <input type="radio" name="cover_logo" value="yes" @if($cover_data['cover_logo'] === 'yes') checked @endif>Da <i class="fa fas fa-check fa-fw"></i>
+                    </label>
+                    <label class="btn btn-default btn-circle btn-lg @if($cover_data['cover_logo'] === 'no') active @endif">
+                        <input type="radio" name="cover_logo" value="no" @if($cover_data['cover_logo'] === 'no') checked @endif>Ne <i class="fa fas fa-times fa-fw"></i>
+                    </label>
+                </div>
+           </div>
+
             <div class="text-center">
                 <button type="submit" class="btn btn-submit btn-submit-full">Spremi izmjene <i class="fa fa-check"></i></button>
             </div>

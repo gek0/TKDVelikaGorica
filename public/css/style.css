@@ -42,7 +42,7 @@ video {
 
 .fullsize-video-bg {
   top: 0;
-  min-height: 60vh;
+  min-height: 65vh;
   height: 100%;
   width: 100%;
   overflow: hidden;
@@ -1144,9 +1144,6 @@ h2.main-full-title{
 
 /* Mini Post */
 .mini-post {
-  display: -moz-flex;
-  display: -webkit-flex;
-  display: -ms-flex;
   display: flex;
   -moz-flex-direction: column-reverse;
   -webkit-flex-direction: column-reverse;

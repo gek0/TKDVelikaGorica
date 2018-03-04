@@ -7,8 +7,7 @@ class Cover extends Eloquent{
      * 	-	id INT UNSIGNED / AUTO_INCREMENT PRIMARY KEY
      *  -   cover_title VARCHAR(255)
      *  -   cover_subtitle VARCHAR(255)
-     *  -	cover_file_name VARCHAR(255)
-     *  -   cover_file_size DOUBLE
+     *  -   cover_logo ENUM ('yes', 'no')
      *  - 	created_at TIMESTAMP
      *  - 	updated_at TIMESTAMP
      */
@@ -19,7 +18,7 @@ class Cover extends Eloquent{
      */
     public static $rules = ['cover_title' => 'between:0,255',
                             'cover_subtitle' => 'between:0,255',
-                            'cover_file_name' => 'image|max:3000'
+                            'cover_logo' => 'required|in:yes,no'
     ];
 
     /**
@@ -27,8 +26,8 @@ class Cover extends Eloquent{
      */
     public static $messages = ['cover_title.between' => 'Naslov mora biti kraći od 255 znakova',
                                 'cover_subtitle.between' => 'Podnaslov mora biti kraći od 255 znakova',
-                                'cover_file_name.image' => 'Dozvoljeni formati slike su: .jpeg, .png, .bmp i .gif',
-                                'cover_file_name.max' => 'Maksimalna veličina slike je 3MB',
+                                'cover_logo.required' => 'Odabir prikaza logotipa je obavezan',
+                                'cover_logo.in' => 'Nije odabran važeći odabir za prikaz logotipa',
     ];
 
     /**

@@ -30,7 +30,10 @@ class AdminController extends BaseController
      */
     public function updateCover()
     {
-        $form_data = ['cover_title' => e(Input::get('cover_title')), 'cover_subtitle' => e(Input::get('cover_subtitle'))];
+        $form_data = ['cover_title' => e(Input::get('cover_title')),
+                        'cover_subtitle' => e(Input::get('cover_subtitle')),
+                        'cover_logo' => e(Input::get('cover_logo'))
+        ];
         $token = Input::get('_token');
 
         //check if csrf token is valid
@@ -55,6 +58,7 @@ class AdminController extends BaseController
 
             $cover->cover_title = $form_data['cover_title'];
             $cover->cover_subtitle = $form_data['cover_subtitle'];
+            $cover->cover_logo = $form_data['cover_logo'];
             $cover->save();
         }
 
