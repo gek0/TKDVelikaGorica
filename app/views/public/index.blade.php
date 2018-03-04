@@ -4,8 +4,11 @@
     <div id="wrapper-news wrapper-extended">
         @include('public.home.cover')
 
-        @include('public.home.calendar')
+        @include('public.home.latest-news')
 
+        <div class="container-fluid padded">
+            @include('public.home.calendar')
+        </div>
     </div> <!-- end #wrapper-news -->
 </section> <!-- end .main-content -->
 

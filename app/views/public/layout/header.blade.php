@@ -1,14 +1,16 @@
 @include('shared-layout.head')
 
     <!-- scripts -->
+    {{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment-with-locales.min.js', ['charset' => 'utf-8']) }}
     {{ HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', ['charset' => 'utf-8']) }}
     {{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.2/sweetalert2.all.min.js', ['charset' => 'utf-8']) }}
-    {{-- HTML::script('https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.1/fullcalendar.min.js', ['charset' => 'utf-8']) --}}
-    {{ HTML::script('js/pace.min.js', ['charset' => 'utf-8']) }}
     {{ HTML::script('js/bootstrap.min.js', ['charset' => 'utf-8']) }}
     {{ HTML::script('js/bootstrap-select.min.js', ['charset' => 'utf-8']) }}
-    {{ HTML::script('js/modernizr.custom.min.js', ['charset' => 'utf-8']) }}
+    {{ HTML::script('js/modernizr-2.6.2.min.js', ['charset' => 'utf-8']) }}
     {{ HTML::script('js/jquery.lazyload.min.js', ['charset' => 'utf-8']) }}
+    {{ HTML::script('js/pace.min.js', ['charset' => 'utf-8']) }}
+    {{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.2/fullcalendar.min.js', ['charset' => 'utf-8']) }}
+    {{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.2/locale/hr.js', ['charset' => 'utf-8']) }}
     <!--[if lt IE 9]>
     {{ HTML::script('js/html5shiv.min.js', ['charset' => 'utf-8']) }}
     {{ HTML::script('js/respond.min.js', ['charset' => 'utf-8']) }}

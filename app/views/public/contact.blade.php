@@ -101,7 +101,7 @@
 
                 <div class="col-md-12 form-group space">
                     <button type="submit" class="button-prim" id="contactSubmit">
-                        <i class="fa fa-paper-plane fa-mid"></i> Pošaljite upit
+                        <i class="fa fas fa-paper-plane fa-mid"></i> Pošaljite upit
                     </button>
                 </div>
             </div>

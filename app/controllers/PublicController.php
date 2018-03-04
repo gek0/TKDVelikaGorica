@@ -34,6 +34,8 @@ class PublicController extends BaseController {
     {
         $cover_data = Cover::first();
 
+        $news_data = News::orderBy('id', 'DESC')->limit(3)->get();
+
         $events = CalendarEvent::get();
         $events_data = [];
         foreach($events as $e){
@@ -45,6 +47,7 @@ class PublicController extends BaseController {
 
         return View::make('public.index')->with(['page_title' => 'Dobrodošli',
                                                 'cover_data' => $cover_data,
+                                                'news_data' => $news_data,
                                                 'events' => $events,
                                                 'calendar' => $calendar
         ]);

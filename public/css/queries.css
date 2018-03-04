@@ -529,6 +529,13 @@
 }
 
 @media all and (max-width: 600px) {
+    .inner-video-text .cover-title{
+        font-size: 1.5em;
+    }
+    .inner-video-text .cover-subtitle{
+        font-size: 1em;
+    }
+
     .timeline::after {
         left: 31px;
     }
@@ -552,5 +559,36 @@
 
     .right-time {
         left: 0%;
+    }
+}
+
+/**
+* height
+*/
+@media all and (max-height: 1095px) {
+    .cover-scroller{
+        top: 250px;
+    }
+}
+@media all and (max-height: 995px) {
+    .cover-scroller{
+        top: 175px;
+    }
+}
+@media all and (max-height: 800px) {
+    .fullsize-video-bg .inner-video-text{
+        top: 50px;
+    }
+    .cover-logo{
+        max-width: 128px;
+    }
+    .cover-scroller{
+        top: 125px;
+    }
+}
+
+@media all and (min-height: 400px) and (max-height: 799px) {
+    .cover-scroller{
+        top: 75px;
     }
 }

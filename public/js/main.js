@@ -374,6 +374,18 @@ $(function () {
 });
 
 /**
+ * cover section scroller
+ */
+$(function() {
+    $('#scroller').on('click', function(e) {
+        var offset = -4;
+        $('html, body').animate({
+            scrollTop: $("#latest-news").offset().top + offset
+        }, 2000);
+    });
+});
+
+/**
  *  image lightbox gallery
  */
 (function($){
