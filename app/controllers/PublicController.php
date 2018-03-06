@@ -33,8 +33,10 @@ class PublicController extends BaseController {
     public function showHome()
     {
         $cover_data = Cover::first();
-
         $news_data = News::orderBy('id', 'DESC')->limit(3)->get();
+        $about_us_data = AboutUs::first();
+        $team_data = Athlete::where('athlete_type', '=', 'coach')->get();
+        $athletes_count = Athlete::where('athlete_type', '<>', 'coach')->count();
 
         $events = CalendarEvent::get();
         $events_data = [];
@@ -49,7 +51,10 @@ class PublicController extends BaseController {
                                                 'cover_data' => $cover_data,
                                                 'news_data' => $news_data,
                                                 'events' => $events,
-                                                'calendar' => $calendar
+                                                'calendar' => $calendar,
+                                                'about_us_data' => $about_us_data,
+                                                'team_data' => $team_data,
+                                                'athletes_count' => $athletes_count
         ]);
     }
 

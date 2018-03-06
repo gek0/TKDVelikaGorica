@@ -2260,6 +2260,13 @@ hr.faint{
   }
 }
 
+/**
+* homepage
+*/
+
+.incremented-title{
+  font-size: 2.15em;
+}
 
 #calendar{
   width: 75%;
@@ -2271,22 +2278,55 @@ hr.faint{
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
 }
 
-#latest-news{
-  width: 100%;
-  height: auto;
-  margin: 0 auto;
-  padding: 2em;
-  background: rgba(60, 60, 60, 1);
-  border-bottom: 2px solid rgba(237, 150, 0, 1);
-  color: rgba(190, 190, 190, 1);
-}
-
 .fc-event .fc-content{
-  padding: .5em;
+  padding: 1.25em;
 }
 
 .fc-day-grid-event{
   font-weight: bold;
+}
+
+#latest-news,
+#about-us,
+#athletes{
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 2em;
+}
+
+#latest-news{
+  background: rgba(60, 60, 60, 1);
+  color: rgba(190, 190, 190, 1);
+}
+
+#about-us{
+  background: rgba(255, 255, 255, 1);
+  color: rgba(100, 100, 100, 1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+}
+
+#athletes{
+  background: rgba(255, 255, 255, 1);
+  color: rgba(100, 100, 100, 1);
+  box-shadow: 0 -1px 2px rgba(0, 0, 0, .1);
+  -moz-box-shadow: 0 -1px 2px rgba(0, 0, 0, .1);
+  -webkit-box-shadow: 0 -1px 2px rgba(0, 0, 0, .1);
+}
+
+.team-image img{
+  display: inline-block;
+  margin: .5em auto;
+}
+
+.team-item{
+  padding: .5em;
+  border: 1px solid rgba(0, 0, 0, .1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
 }
 
 /**

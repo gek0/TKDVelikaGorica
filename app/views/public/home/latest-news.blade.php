@@ -1,6 +1,6 @@
 <section id="latest-news">
     @if($news_data->count() > 0)
-        <h2 class="text-center inverted-title">Pogledajte zadnje obavijesti na našemu portalu</h2>
+        <h2 class="text-center inverted-title incremented-title">Pogledajte zadnje obavijesti na našemu portalu</h2>
         <div id="news-carousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 @foreach($news_data as $idx => $news)
@@ -38,7 +38,7 @@
 
         <div class="text-center space-x4">
             <a href="{{ route('news') }}" class="btn-main-class-static btn-main-clear-text">
-                <i class="fa fas fa-newspaper-o fa-fw fa-mid"></i> Pregled svih obavijesti
+                <i class="fa fas fa-newspaper-o faa-tada animated fa-fw fa-mid"></i> Pregled svih obavijesti
             </a>
         </div>
     @else

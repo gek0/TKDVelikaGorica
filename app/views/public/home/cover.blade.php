@@ -21,7 +21,7 @@
         </video>
     </div>
     @if($cover_data['cover_title'])
-        <div class="cover-scroller" id="scroller">
+        <div class="cover-scroller" id="scroller" title="Pomaknite se prema dolje">
             <a href="#" class="scroll-down"></a>
         </div>
     @endif

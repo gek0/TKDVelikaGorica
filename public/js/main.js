@@ -58,6 +58,20 @@ $('#return-to-top').click(function() {
 
 jQuery(document).ready(function(){
     /**
+     *   team containers
+     */
+    var teamContent = $(".team-text");
+    if(teamContent.length > 0) {
+        var maxHeightContent = 0;
+        teamContent.each(function () {
+            if ($(this).height() > maxHeightContent) {
+                maxHeightContent = $(this).height();
+            }
+        });
+        teamContent.height(maxHeightContent);
+    }
+
+    /**
      *   add lazy loading to images out of screen viewport
      */
     $(function() {
