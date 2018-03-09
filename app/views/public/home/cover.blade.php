@@ -4,6 +4,7 @@
             @if($cover_data['cover_logo'] === 'yes')
                 <div class="nav-logo">
                     {{ HTML::image('css/assets/images/logo_main.png', 'Logo', ['title' => getenv('WEB_NAME'), 'class' => 'img-responsive cover-logo']) }}
+                    {{ HTML::image('css/assets/images/logo_main_mascote.png', 'Logo maskota', ['title' => getenv('WEB_NAME').' maskota', 'class' => 'img-responsive cover-logo']) }}
                 </div>
             @endif
             @if($cover_data['cover_title'])

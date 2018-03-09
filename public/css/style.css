@@ -356,6 +356,11 @@ html, body, .perspective {
   margin-bottom: .5em;
 }
 .nav-logo > img {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.nav-logo-single > img{
   display: block;
   margin: 0 auto;
 }

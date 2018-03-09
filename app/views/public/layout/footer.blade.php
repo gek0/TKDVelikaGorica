@@ -47,6 +47,7 @@
                         <div class="col-md-12 text-center">
                             <a href="{{ route('home') }}">
                                 {{ HTML::image('css/assets/images/logo_main_small.png', 'Logo', ['title' => getenv('WEB_NAME'), 'class' => 'img-responsive footer-logo']) }}
+                                {{ HTML::image('css/assets/images/logo_main_small_mascote.png', 'Logo maskota', ['title' => getenv('WEB_NAME').' maskota', 'class' => 'img-responsive footer-logo']) }}
                             </a>
                             <p>&copy; <b>{{ getenv('WEB_NAME') }}</b>, {{ date('Y') }}<br>
                                 Code &amp; Design made with <i class="fa fa-heart faa-pulse animated red" title="love"></i>  by <a href="{{ url('https://github.com/gek0') }}" target="_blank">MB</a>
@@ -62,7 +63,7 @@
 
     <nav class="outer-nav left vertical">
         <ul class="nav nav-pills nav-stacked">
-            <li class="nav-logo">
+            <li class="nav-logo-single">
                 {{ HTML::image('css/assets/images/logo_main.png', 'Logo', ['title' => getenv('WEB_NAME'), 'class' => 'img-responsive']) }}
             </li>
             {{ HTML::smartRoute_link_v2('/', 'Početna', '<i class="fa fas fa-home fa-fw" aria-hidden="true"></i>') }}
