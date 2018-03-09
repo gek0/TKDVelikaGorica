@@ -33,6 +33,16 @@
 <a href="#" id="return-to-top" title="Povratak na vrh"><i class="fa far fa-chevron-up"></i></a>
 
 <div id="perspective" class="perspective effect-airbnb">
+    <nav class="hidden-scroller">
+        <h2 class="text-center inverted-title">{{ getenv('WEB_NAME') }}</h2>
+        <ul class="nav nav-pills nav-justified nav-scroller">
+            {{ HTML::smartRoute_link_v2('/', 'Početna', '<i class="fa fas fa-home fa-fw" aria-hidden="true"></i>') }}
+            {{ HTML::smartRoute_link_v2('obavijesti', 'Obavijesti', '<i class="fa fa-newspaper-o fa-fw" aria-hidden="true"></i>') }}
+            {{ HTML::smartRoute_link_v2('sportasi', 'Sportaši', '<i class="fa fa-users fa-fw" aria-hidden="true"></i>') }}
+            {{ HTML::smartRoute_link_v2('galerije', 'Galerije', '<i class="fa fa-picture-o fa-fw" aria-hidden="true"></i>') }}
+            {{ HTML::smartRoute_link_v2('kontakt', 'Kontakt', '<i class="fa fas fa-envelope-open fa-fw" aria-hidden="true"></i>') }}
+        </ul>
+    </nav>
     <div class="container-wrapped">
         <div class="wrapper">
             <button class="pulse-button" id="showMenu" title="Prikaži izbornik"></button>

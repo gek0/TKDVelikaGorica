@@ -56,6 +56,24 @@ $('#return-to-top').click(function() {
     }, 700);
 });
 
+/**
+ * hidden scrollable navigation
+ */
+(function($) {
+$(document).ready(function() {
+    $(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 500) {
+                $('.hidden-scroller').fadeIn();
+            } else {
+                $('.hidden-scroller').fadeOut();
+            }
+        });
+    });
+});
+}(jQuery));
+
+
 jQuery(document).ready(function(){
     /**
      *   team containers

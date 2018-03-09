@@ -22,7 +22,7 @@ class GalleryImage extends Eloquent{
      * validation error messages
      */
     public static $messages = ['images.image' => 'Dozvoljeni formati slike su: .jpeg, .png, .bmp i .gif',
-                                'images.max' => 'Maksimalna velièina slike je 6MB',
+                                'images.max' => 'Maksimalna veliÄina slike je 6MB',
     ];
 
     /**

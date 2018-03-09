@@ -2397,3 +2397,57 @@ blockquote.about:after {
 .small-slider-img{
   max-width: 150px;
 }
+
+/**
+* hidden scrolling navigation
+*/
+.hidden-scroller{
+  position: fixed;
+  top: 0;
+  display: none;
+  z-index: 999;
+  width: 100%;
+  background: rgba(60, 60, 60, 1);
+  border-bottom: 2px solid rgba(237, 150, 0, 1);
+}
+
+.hidden-scroller > ul.nav-scroller {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.hidden-scroller > ul.nav-scroller > li {
+  float: none;
+  display: table-cell;
+}
+
+.nav-scroller > li{
+  width: 100%;
+  background: rgba(60, 60, 60, 1);
+}
+.nav-scroller > li.active-prim{
+  background: rgba(237, 150, 0, 1)
+}
+
+.nav-scroller > li,
+.nav-scroller > li.active-prime{
+  border-right: 1px solid rgba(237, 150, 0, 1);
+}
+.nav-scroller > li:last-child,
+.nav-scroller > li.active-prime:last-child{
+  border: none;
+}
+
+.nav-scroller > li > a,
+.nav-scroller > li.active-prime > a{
+  color: #FFFFFF;
+  text-align: center;
+  margin: .5em;
+  border: none;
+}
+
+.nav-scroller > li:last-child > a,
+.nav-scroller > li.active-prime:last-child > a{
+  border: none;
+}

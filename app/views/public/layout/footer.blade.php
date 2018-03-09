@@ -49,7 +49,7 @@
                                 {{ HTML::image('css/assets/images/logo_main_small.png', 'Logo', ['title' => getenv('WEB_NAME'), 'class' => 'img-responsive footer-logo']) }}
                             </a>
                             <p>&copy; <b>{{ getenv('WEB_NAME') }}</b>, {{ date('Y') }}<br>
-                                Made with <i class="fa fa-heart faa-pulse animated red" title="love"></i>  by <a href="{{ url('https://github.com/gek0') }}" target="_blank">Matija</a>
+                                Code &amp; Design made with <i class="fa fa-heart faa-pulse animated red" title="love"></i>  by <a href="{{ url('https://github.com/gek0') }}" target="_blank">MB</a>
                             </p>
                         </div>
                     </div>

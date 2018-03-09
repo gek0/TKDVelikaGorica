@@ -9,9 +9,14 @@ class PublicController extends BaseController {
     {
         $this->beforeFilter('crfs', ['on' => ['post', 'put', 'patch', 'delete']]);
 
+        // share section data to all views - used to enabled/disabled sections
+        $section_data = Section::get();
+
         // share info data to all views - used in footer and contact page
         $info_data = Info::first();
-        View::share('info_data', $info_data);
+        View::share(['info_data' => $info_data,
+                    'section_data' => $section_data
+        ]);
     }
 
     /**
