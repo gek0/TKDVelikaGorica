@@ -32,8 +32,10 @@ class AdminController extends BaseController
     {
         $form_data = ['cover_title' => e(Input::get('cover_title')),
                         'cover_subtitle' => e(Input::get('cover_subtitle')),
-                        'cover_logo' => e(Input::get('cover_logo'))
+                        'cover_logo' => e(Input::get('cover_logo')),
+                        'cover_file_delete' => e(Input::get('cover_file_delete'))
         ];
+        $cover_file = Input::file('cover_file');
         $token = Input::get('_token');
 
         //check if csrf token is valid
@@ -54,6 +56,42 @@ class AdminController extends BaseController
             }
             else{
                 $cover = $check_data;
+            }
+
+            $path = public_path().'/'.getenv('COVER_UPLOAD_DIR').'/';
+
+            if($cover_file == true){
+                $valid_file_types = ['webm', 'jpg', 'jpeg', 'png'];
+                if(!in_array($cover_file->getClientOriginalExtension(), $valid_file_types)){
+                    return Redirect::to(route('admin-page-home'))->withErrors(['error' => 'Format datoteke nije važeći.']);
+                }
+
+                //check for image directory
+                if(!File::exists($path)){
+                    File::makeDirectory($path, 0777);
+                }
+                else{
+                    File::delete($path.$cover->cover_file);
+                }
+
+                $file_name = getenv('WEB_NAME_URL_SAFE').'_cover';
+                $file_extension = $cover_file->getClientOriginalExtension();
+                $full_name = $file_name.'.'.$file_extension;
+                $file_uploaded = $cover_file->move($path, $full_name);
+
+                $cover->cover_file = $full_name;
+                if($file_extension === 'webm'){
+                    $cover->cover_type = 'video';
+                }
+                else{
+                    $cover->cover_type = 'image';
+                }
+            }
+            else{
+                // delete existing if requested
+                if(isset($form_data['cover_file_delete']) && $form_data['cover_file_delete'] == '1'){
+                    $cover->cover_file = null;
+                }
             }
 
             $cover->cover_title = $form_data['cover_title'];

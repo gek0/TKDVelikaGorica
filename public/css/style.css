@@ -367,7 +367,7 @@ html, body, .perspective {
 
 /* Effect airbnb */
 .effect-airbnb {
-  background: rgba(60, 60, 60);
+  background: rgba(60, 60, 60, 1);
 }
 
 .effect-airbnb .container-wrapped {
@@ -2455,4 +2455,9 @@ blockquote.about:after {
 .nav-scroller > li:last-child > a,
 .nav-scroller > li.active-prime:last-child > a{
   border: none;
+}
+
+.cover-photo-image{
+  width: 100%;
+  height: 100%;
 }

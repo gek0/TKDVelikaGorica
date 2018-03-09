@@ -8,6 +8,8 @@ class Cover extends Eloquent{
      *  -   cover_title VARCHAR(255)
      *  -   cover_subtitle VARCHAR(255)
      *  -   cover_logo ENUM ('yes', 'no')
+     *  -   cover_file VARCHAR(255)
+     *  -   cover_type ENUM ('image', 'video')
      *  - 	created_at TIMESTAMP
      *  - 	updated_at TIMESTAMP
      */

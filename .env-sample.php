@@ -28,6 +28,7 @@ return array(
     'WEB_NAME_URL_SAFE' => 'Taekwondo_Velika_Gorica',
     'IMAGE_GALLERY_UPLOAD_DIR' => 'image_gallery_uploads',
     'NEWS_UPLOAD_DIR' => 'news_uploads',
+    'COVER_UPLOAD_DIR' => 'cover_uploads',
     'ATHLETES_UPLOAD_DIR' => 'athletes_uploads',
     'DEFAULT_MAP_ZOOM_LEVEL' => '13',
 );
