@@ -7,7 +7,7 @@
                 <p>Podržani video formati su: <strong>webM</strong>, a podržani formati slika: <strong>png, jpg, jpeg</strong></p>
                 <p>Za konverziju videa u <strong>webM</strong> format: <a href="https://video.online-convert.com/convert-to-webm" target="_blank">Online Convert</a></p>
             </div>
-            {{ Form::open(['url' => route('admin-cover-editPOST'), 'role' => 'form', 'id' => 'admin-cover-image', 'files' => true, 'class' => 'form-element']) }}
+            {{ Form::open(['url' => route('admin-cover-editPOST'), 'role' => 'form', 'id' => 'admin-cover', 'files' => true, 'class' => 'form-element']) }}
             <div class="form-group">
                 {{ Form::label('cover_title', 'Naslov:') }}
                 {{ Form::text('cover_title', $cover_data['cover_title'], ['class' => 'form-input-control', 'placeholder' => 'Naslov']) }}

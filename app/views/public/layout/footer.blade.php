@@ -4,11 +4,13 @@
                         <div class="col-md-6 text-center sponsors">
                             <h5 class="inverted-title">Pronađite nas na društvenim mrežama</h5>
                             <ul class="social-icons-nav">
-                                <li class="social-icon social-rss" alt="RSS" title="RSS">
-                                    <a href="{{ route('rss') }}" target="_blank">
-                                        <i class="fa fas fa-rss-square fa-gig fa-fw"></i>
-                                    </a>
-                                </li>
+                                @if(get_section_enabled_status('news'))
+                                    <li class="social-icon social-rss" alt="RSS" title="RSS">
+                                        <a href="{{ route('rss') }}" target="_blank">
+                                            <i class="fa fas fa-rss-square fa-gig fa-fw"></i>
+                                        </a>
+                                    </li>
+                                @endif
                                 @if($info_data->facebook_url)
                                     <li class="social-icon social-facebook" alt="Facebook" title="Facebook">
                                         <a href="{{ $info_data->facebook_url }}" target="_blank">
@@ -67,10 +69,18 @@
                 {{ HTML::image('css/assets/images/logo_main.png', 'Logo', ['title' => getenv('WEB_NAME'), 'class' => 'img-responsive']) }}
             </li>
             {{ HTML::smartRoute_link_v2('/', 'Početna', '<i class="fa fas fa-home fa-fw" aria-hidden="true"></i>') }}
-            {{ HTML::smartRoute_link_v2('obavijesti', 'Obavijesti', '<i class="fa fa-newspaper-o fa-fw" aria-hidden="true"></i>') }}
-            {{ HTML::smartRoute_link_v2('sportasi', 'Sportaši', '<i class="fa fa-users fa-fw" aria-hidden="true"></i>') }}
-            {{ HTML::smartRoute_link_v2('galerije', 'Galerije', '<i class="fa fa-picture-o fa-fw" aria-hidden="true"></i>') }}
-            {{ HTML::smartRoute_link_v2('kontakt', 'Kontakt', '<i class="fa fas fa-envelope-open fa-fw" aria-hidden="true"></i>') }}
+            @if(get_section_enabled_status('news'))
+                {{ HTML::smartRoute_link_v2('obavijesti', 'Obavijesti', '<i class="fa fa-newspaper-o fa-fw" aria-hidden="true"></i>') }}
+            @endif
+            @if(get_section_enabled_status('athletes'))
+                {{ HTML::smartRoute_link_v2('sportasi', 'Sportaši', '<i class="fa fa-users fa-fw" aria-hidden="true"></i>') }}
+            @endif
+            @if(get_section_enabled_status('galleries'))
+                {{ HTML::smartRoute_link_v2('galerije', 'Galerije', '<i class="fa fa-picture-o fa-fw" aria-hidden="true"></i>') }}
+            @endif
+            @if(get_section_enabled_status('contact'))
+                {{ HTML::smartRoute_link_v2('kontakt', 'Kontakt', '<i class="fa fas fa-envelope-open fa-fw" aria-hidden="true"></i>') }}
+            @endif
         </ul>
     </nav>
 </div><!-- /perspective -->

@@ -26,6 +26,9 @@ Route::group(['before' => 'auth'], function() {
 		Route::get('o-nama', ['as' => 'admin-about-us', 'uses' => 'AdminController@showAboutUs']);
 		Route::post('o-nama', ['as' => 'admin-about-usPOST', 'uses' => 'AdminController@updateAboutUs']);
 
+		Route::get('o-klubu', ['as' => 'admin-about-club', 'uses' => 'AdminController@showAboutClub']);
+		Route::post('o-klubu', ['as' => 'admin-about-clubPOST', 'uses' => 'AdminController@updateAboutClub']);
+
 		Route::get('obavijesti', ['as' => 'admin-news', 'uses' => 'NewsController@showNews']);
 		Route::get('obavijesti/nova', ['as' => 'admin-news-add', 'uses' => 'NewsController@showNewNewsForm']);
 		Route::post('obavijesti/nova', ['as' => 'admin-news-addPOST', 'uses' => 'NewsController@addNewNews']);
@@ -60,6 +63,9 @@ Route::group(['before' => 'auth'], function() {
 
 		Route::post('info', ['as' => 'admin-infoPOST', 'uses' => 'AdminController@updateInfo']);
 		Route::get('info', ['as' => 'admin-info', 'uses' => 'AdminController@showInfo']);
+
+		Route::post('sections', ['as' => 'admin-sectionsPOST', 'uses' => 'AdminController@updateSections']);
+		Route::get('sections', ['as' => 'admin-sections', 'uses' => 'AdminController@showSections']);
 
 		Route::post('korisnici', ['as' => 'admin-usersPOST', 'uses' => 'UserController@addUser']);
 		Route::get('korisnici', ['as' => 'admin-users', 'uses' => 'UserController@showUsers']);

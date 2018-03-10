@@ -9,14 +9,9 @@ class PublicController extends BaseController {
     {
         $this->beforeFilter('crfs', ['on' => ['post', 'put', 'patch', 'delete']]);
 
-        // share section data to all views - used to enabled/disabled sections
-        $section_data = Section::get();
-
         // share info data to all views - used in footer and contact page
         $info_data = Info::first();
-        View::share(['info_data' => $info_data,
-                    'section_data' => $section_data
-        ]);
+        View::share(['info_data' => $info_data]);
     }
 
     /**
@@ -40,6 +35,7 @@ class PublicController extends BaseController {
         $cover_data = Cover::first();
         $news_data = News::orderBy('id', 'DESC')->limit(3)->get();
         $about_us_data = AboutUs::first();
+        $about_club_data = AboutClub::first();
         $team_data = Athlete::where('athlete_type', '=', 'coach')->get();
         $athletes_count = Athlete::where('athlete_type', '<>', 'coach')->count();
 
@@ -58,6 +54,7 @@ class PublicController extends BaseController {
                                                 'events' => $events,
                                                 'calendar' => $calendar,
                                                 'about_us_data' => $about_us_data,
+                                                'about_club_data' => $about_club_data,
                                                 'team_data' => $team_data,
                                                 'athletes_count' => $athletes_count
         ]);
@@ -69,6 +66,10 @@ class PublicController extends BaseController {
      */
     public function showContact()
     {
+        if(!get_section_enabled_status('contact')){
+            App::abort(404, 'Sekcija kontakt nije pronađena.');
+        }
+
         return View::make('public.contact')->with(['page_title' => 'Kontakt']);
     }
 
@@ -155,6 +156,10 @@ class PublicController extends BaseController {
      */
     public function getRss()
     {
+        if(!get_section_enabled_status('news')){
+            App::abort(404, 'Sekcija obavijesti nije pronađena.');
+        }
+
         //generate feed and cache for 60 min
         $feed = Feed::make();
         $feed->setCache(60, getenv('RSS_CACHE_KEY'));
@@ -193,6 +198,10 @@ class PublicController extends BaseController {
      */
     public function showNews()
     {
+        if(!get_section_enabled_status('news')){
+            App::abort(404, 'Sekcija obavijesti nije pronađena.');
+        }
+
         //default form sort value
         $news_text_sort = null;
         $sort_category = null;
@@ -217,6 +226,10 @@ class PublicController extends BaseController {
      */
     public function showFilteredSortedNews()
     {
+        if(!get_section_enabled_status('news')){
+            App::abort(404, 'Sekcija obavijesti nije pronađena.');
+        }
+
         //get form data and set default sort options
         $news_text_sort = e(Input::get('news_text_sort'));
         $sort_category = e(Input::get('sort_option'));
@@ -288,6 +301,10 @@ class PublicController extends BaseController {
      */
     public function showIndividualNews($slug = null)
     {
+        if(!get_section_enabled_status('news')){
+            App::abort(404, 'Sekcija obavijesti nije pronađena.');
+        }
+
         if ($slug !== null){
             $news_data = News::findBySlug(e($slug));
 
@@ -340,6 +357,10 @@ class PublicController extends BaseController {
      */
     public function showGalleries()
     {
+        if(!get_section_enabled_status('galleries')){
+            App::abort(404, 'Sekcija galerija nije pronađena.');
+        }
+
         $image_galleries_data = Gallery::orderBy('id', 'DESC')->get();
         $video_data = Video::orderBy('id', 'DESC')->get();
 
@@ -356,6 +377,10 @@ class PublicController extends BaseController {
      */
     public function viewImageGallery($slug = null)
     {
+        if(!get_section_enabled_status('galleries')){
+            App::abort(404, 'Sekcija galerija nije pronađena.');
+        }
+
         if ($slug !== null){
             $gallery_data = Gallery::findBySlug(e($slug));
 
@@ -380,6 +405,10 @@ class PublicController extends BaseController {
      */
     public function showAthletes()
     {
+        if(!get_section_enabled_status('athletes')){
+            App::abort(404, 'Sekcija sportaša nije pronađena.');
+        }
+
         $athletes_data = Athlete::where('athlete_type', '=', 'athlete')->orderBy('athlete_birth_date', 'DESC')->get();
 
         return View::make('public.athletes')->with(['page_title' => 'Sportaši',

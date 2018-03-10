@@ -4,15 +4,25 @@
     <div id="wrapper-news wrapper-extended">
         @include('public.home.cover')
 
-        @include('public.home.latest-news')
+        @if(get_section_enabled_status('news'))
+            @include('public.home.latest-news')
+        @endif
 
-        @include('public.home.about-us')
-
-        <div class="container-fluid padded">
-            @include('public.home.calendar')
-        </div>
-
+        @if(get_section_enabled_status('about-us'))
+            @include('public.home.about-us')
+        @endif
+        <hr>
         @include('public.home.athletes')
+
+        @if(get_section_enabled_status('calendar'))
+            <div class="container-fluid padded">
+                @include('public.home.calendar')
+            </div>
+        @endif
+
+        @if(get_section_enabled_status('about-club'))
+            @include('public.home.about-club')
+        @endif
     </div> <!-- end #wrapper-news -->
 </section> <!-- end .main-content -->
 

@@ -153,6 +153,55 @@ class AdminController extends BaseController
     }
 
     /**
+     * show admin about club
+     * @return mixed
+     */
+    public function showAboutClub()
+    {
+        $about_club_data = AboutClub::first();
+
+        return View::make('admin.about-club')->with(['page_title' => 'Administracija',
+                            'about_club_data' => $about_club_data
+        ]);
+    }
+
+    /**
+     * update about club section
+     * @return mixed
+     */
+    public function updateAboutClub()
+    {
+        $form_data = Input::all();
+
+        //check if csrf token is valid
+        if(Session::token() != $form_data['_token']){
+            return Redirect::back()->withErrors('Nevažeći CSRF token!');
+        }
+
+        $validator = Validator::make($form_data, AboutClub::$rules, AboutClub::$messages);
+        //check validation results and category if ok
+        if($validator->fails()){
+            return Redirect::back()->withErrors($validator->getMessageBag()->toArray())->withInput();
+        }
+        else {
+            //only one record in database
+            $check_data = AboutClub::first();
+            if($check_data == null){
+                $about_club = new AboutClub;
+            }
+            else{
+                $about_club = $check_data;
+            }
+
+            $about_club->about_title = $form_data['about_title'];
+            $about_club->about_body = $form_data['about_body'];
+            $about_club->save();
+        }
+
+        return Redirect::to(route('admin-about-club'))->with(['success' => 'Sekcija "O klubu" je uspješno izmjenjena']);
+    }
+
+    /**
      * show admin info
      * @return mixed
      */
@@ -210,5 +259,43 @@ class AdminController extends BaseController
         }
 
         return Redirect::to(route('admin-info'))->with(['success' => 'Informacije su uspješno izmjenjene']);
+    }
+
+    /**
+     * show admin sections
+     * @return mixed
+     */
+    public function showSections()
+    {
+        $sections_data = Section::get();
+
+        return View::make('admin.sections')->with(['page_title' => 'Administracija',
+                                                'sections_data' => $sections_data
+        ]);
+    }
+
+    /**
+     * update sections
+     * @return mixed
+     */
+    public function updateSections()
+    {
+        $form_data = Input::all();
+        $token = Input::get('_token');
+
+        //check if csrf token is valid
+        if(Session::token() != $token){
+            return Redirect::back()->withErrors('Nevažeći CSRF token!');
+        }
+
+        array_shift($form_data); // remove token from array
+        $sections_info = array_chunk($form_data, 2); // split array to multiple ones containing section_name and section_status/enabled
+        foreach($sections_info as $sec){
+            $section = Section::where('section_name', '=', $sec[0])->first();
+            $section->enabled = $sec[1];
+            $section->save();
+        }
+
+        return Redirect::to(route('admin-sections'))->with(['success' => 'Sekcije su uspješno izmjenjene']);
     }
 }

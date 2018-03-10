@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-lg-8 col-lg-offset-2" id="layout-block-main">
         <div id="cover-image">
-            {{ Form::open(['url' => route('admin-infoPOST'), 'role' => 'form', 'id' => 'admin-cover-image', 'class' => 'form-element']) }}
+            {{ Form::open(['url' => route('admin-infoPOST'), 'role' => 'form', 'id' => 'admin-info', 'class' => 'form-element']) }}
             <div class="col-md-6">
                 <div class="form-group">
                     {{ Form::label('owner_contact_email', 'Kontakt e-mail adresa:') }}

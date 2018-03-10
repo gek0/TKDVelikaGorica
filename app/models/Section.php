@@ -15,12 +15,12 @@ class Section extends Eloquent{
      * validation rules for entities
      *
      */
-    public static $rules = ['enabled' => 'required|in:yes,no'];
+    public static $rules = [];
 
     /**
      * validation error messages
      */
-    public static $messages = ['enabled.in' => 'Nije odabran važeći odabir za prikaz sekcije'];
+    public static $messages = [];
 
     /**
      * The database table used by the model.

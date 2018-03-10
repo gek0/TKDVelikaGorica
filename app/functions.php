@@ -200,3 +200,31 @@ function truncateHTML($html, $length) {
 
     return $html;
 }
+
+/**
+ * @param $section_name
+ * @return boolean
+ * check if section is enabled
+ */
+function get_section_enabled_status($section_name) {
+    if($section_name == null){
+        return false;
+    }
+
+    // escape it just in case
+    $section_name = e($section_name);
+
+    $section = Section::where('section_name', '=', $section_name)->first();
+    // check if section exists
+    if(!$section){
+        return false;
+    }
+    else{
+        if($section->enabled === 'yes'){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}

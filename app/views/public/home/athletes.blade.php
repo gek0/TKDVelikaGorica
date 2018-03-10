@@ -48,7 +48,7 @@
     @else
         <h2 class="text-center inverted-title">Još nismo objavili listu članova, no navratite uskoro!</h2>
     @endif
-    @if($athletes_count > 0)
+    @if($athletes_count > 0 && get_section_enabled_status('athletes'))
         <div class="text-center space-x4">
             <a href="{{ route('athletes') }}" class="btn-main-class-static btn-main-clear-text">
                 <i class="fa fas fa-users faa-tada animated fa-fw fa-mid"></i> Naši sportaši i sportašice
