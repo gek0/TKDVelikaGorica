@@ -207,8 +207,13 @@ function truncateHTML($html, $length) {
  * check if section is enabled
  */
 function get_section_enabled_status($section_name) {
+    // not found or wrong sections - hide it
     if($section_name == null){
         return false;
+    }
+    // logged in user (admin) should still see disabled sections
+    if(Auth::user()){
+        return true;
     }
 
     // escape it just in case
