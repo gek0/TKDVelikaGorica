@@ -88,6 +88,9 @@
             @if(get_section_enabled_status('contact'))
                 {{ HTML::smartRoute_link_v2('kontakt', 'Kontakt', '<i class="fa fas fa-envelope-open fa-fw" aria-hidden="true"></i>') }}
             @endif
+            <li class="nav-logo-single">
+                {{ HTML::image('css/assets/images/logo_main_mascote.png', 'Logo', ['title' => getenv('WEB_NAME').' maskota', 'class' => 'img-responsive']) }}
+            </li>
         </ul>
     </nav>
 </div><!-- /perspective -->

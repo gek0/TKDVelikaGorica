@@ -518,7 +518,7 @@ html, body, .perspective {
 .wrap-contact-full-flex {
   width: 640px;
   min-height: 100vh;
-  background: rgba(235, 235, 225, 1);
+  background: rgba(235, 235, 235, 1);
   border-radius: 2px;
   padding: 22px 55px 33px 25px;
   position: relative;
