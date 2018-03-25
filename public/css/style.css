@@ -365,6 +365,12 @@ html, body, .perspective {
   margin: 0 auto;
 }
 
+.inner-video-text h1.linebreaks,
+.inner-video-text h2.linebreaks
+{
+  white-space: pre;
+}
+
 /* Effect airbnb */
 .effect-airbnb {
   background: rgba(60, 60, 60, 1);
@@ -1058,6 +1064,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .main-content{
+  background: url('assets/images/main_bg_tkd.png') repeat;
   width: 100%;
   height: auto;
   margin: 0 auto;

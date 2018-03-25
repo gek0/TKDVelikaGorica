@@ -6,6 +6,7 @@
             <div class="text-center space-x2">
                 <p>Podržani video formati su: <strong>webM</strong>, a podržani formati slika: <strong>png, jpg, jpeg</strong></p>
                 <p>Za konverziju videa u <strong>webM</strong> format: <a href="https://video.online-convert.com/convert-to-webm" target="_blank">Online Convert</a></p>
+                <p>Za prijelom teksta u naslovu i podnaslovu koristiti znak: <strong>\n</strong></p>
             </div>
             {{ Form::open(['url' => route('admin-cover-editPOST'), 'role' => 'form', 'id' => 'admin-cover', 'files' => true, 'class' => 'form-element']) }}
             <div class="form-group">

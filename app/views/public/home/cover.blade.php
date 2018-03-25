@@ -8,10 +8,10 @@
                 </div>
             @endif
             @if($cover_data->cover_title)
-                <h1 class="cover-title">{{ $cover_data->cover_title }}</h1>
+                <h1 class="cover-title linebreaks">{{ $cover_data->cover_title }}</h1>
             @endif
             @if($cover_data->cover_subtitle)
-                <h2 class="cover-subtitle">{{ $cover_data->cover_subtitle }}</h2>
+                <h2 class="cover-subtitle linebreaks">{{ $cover_data->cover_subtitle }}</h2>
             @endif
         </article>
     </div>

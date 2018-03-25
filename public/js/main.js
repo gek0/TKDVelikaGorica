@@ -42,19 +42,24 @@ $(window).scroll(function() {
     } else {
         $('#return-to-top').fadeOut(200);
     }
-
-    // scroll the sidebar content
-    var full_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    if (($(this).scrollTop() >= 0 && $(this).scrollTop() <= 1500) && full_width >= 1281) {
-        $("#sidebar").stop().animate({"marginTop": ($(window).scrollTop())}, "slow");
-    }
-
 });
 $('#return-to-top').click(function() {
     $('body,html').animate({
         scrollTop : 0
     }, 700);
 });
+
+/**
+ * line break char in text
+ */
+$el_title = $('h1.linebreaks:eq(0)');
+$el_sub = $('h2.linebreaks:eq(0)');
+if($el_title.length > 0) {
+    $el_title.html($el_title.html().replace(/\\n/g, '\n'));
+}
+if($el_sub.length > 0) {
+    $el_sub.html($el_sub.html().replace(/\\n/g, '\n'));
+}
 
 /**
  * hidden scrollable navigation
@@ -202,43 +207,6 @@ jQuery(document).ready(function(){
         }, 5000);
 
     });
-
-    /**
-     *   live tags filtering
-     */
-    var tagsFilter = $("#filter");
-    if(tagsFilter.length > 0) {
-        //prevent submit action if user tried
-        $("#live-search").submit(function(event){
-            event.preventDefault();
-        })
-
-        //start search/filter function
-        tagsFilter.keyup(function () {
-            $("#filter-count").text("Tražim..");
-
-            var filter = $(this).val(), count = 0;
-
-            $(".tags li").each(function () {
-                if ($(this).text().search(new RegExp(filter, "i")) < 0) {
-                    $(this).fadeOut();
-                }
-                else {
-                    $(this).show();
-                    count++;
-                }
-            });
-
-            setTimeout(function () {
-                if(count > 0) {
-                    $("#filter-count").text('Klknite na traženi tag za prikaz svih vijesti s istim.');
-                }
-                else{
-                    $("#filter-count").text('Nije pronađen niti jedan tag.');
-                }
-            }, 1500);
-        });
-    }
 
     /**
      *   submit form if option changed in drop-down menu
