@@ -246,15 +246,19 @@ class AdminController extends BaseController
             $info->owner_contact_email = $form_data['owner_contact_email'];
             $info->owner_contact_phone = $form_data['owner_contact_phone'];
             $info->owner_contact_address = $form_data['owner_contact_address'];
+            $info->owner_contact_address_2 = $form_data['owner_contact_address_2'];
             $info->web_email_subject = $form_data['web_email_subject'];
             $info->bank_account = $form_data['bank_account'];
             $info->iban_number = $form_data['iban_number'];
             $info->oib_number = $form_data['oib_number'];
             $info->facebook_url = $form_data['facebook_url'];
+            $info->instagram_url = $form_data['instagram_url'];
             $info->twitter_url = $form_data['twitter_url'];
             $info->youtube_url = $form_data['youtube_url'];
             $info->map_lat = $form_data['map_lat'];
             $info->map_lng = $form_data['map_lng'];
+            $info->map_2_lat = $form_data['map_2_lat'];
+            $info->map_2_lng = $form_data['map_2_lng'];
             $info->save();
         }
 

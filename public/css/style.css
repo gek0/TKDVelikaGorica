@@ -518,11 +518,15 @@ html, body, .perspective {
 .wrap-contact-full-flex {
   width: 640px;
   min-height: 100vh;
-  background: rgba(245, 245, 245, 1);
+  background: rgba(235, 235, 225, 1);
   border-radius: 2px;
   padding: 22px 55px 33px 25px;
   position: relative;
   border-left: 5px solid rgba(237, 150, 0, 1);
+}
+
+.forced-margin{
+    margin: 0 auto;
 }
 
 .show-wrap-contact-full-flex {
@@ -1907,6 +1911,10 @@ body.single #wrapper-news {
 #footer .social-youtube > a:hover,
 #footer .social-youtube > a:active{
   color: rgba(228, 33, 38, 1);
+}
+#footer .social-instagram > a:hover,
+#footer .social-instagram > a:active{
+    color: rgba(188, 42, 141, 1);
 }
 
 /**

@@ -12,6 +12,8 @@
             var img_pin = selector_map.attr('data-pin');
             var data_map_x = selector_map.attr('data-map-x');
             var data_map_y = selector_map.attr('data-map-y');
+            var data_map_2_x = selector_map.attr('data-map-2-x');
+            var data_map_2_y = selector_map.attr('data-map-2-y');
             var scrollwhell = selector_map.attr('data-scrollwhell');
             var draggable = selector_map.attr('data-draggable');
             var map_zoom = selector_map.attr('data-zoom');
@@ -111,11 +113,9 @@
                 stylers: [{color: "#080808"}, {gamma: "3.14"}, {weight: "1.07"}]
             }];
 
-            var latitude = data_map_x,
-                longitude = data_map_y;
-
             var locations = [
-                [tooltip_text, latitude, longitude, 2]
+                [tooltip_text, data_map_x, data_map_y, 2],
+                [tooltip_text, data_map_2_x, data_map_2_y, 2]
             ];
 
             if (selector_map !== undefined) {
@@ -129,7 +129,7 @@
                     scaleControl: false,
                     draggable: draggable,
                     styles: style,
-                    center: new google.maps.LatLng(latitude, longitude),
+                    center: new google.maps.LatLng(data_map_x, data_map_y),
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 });
             }

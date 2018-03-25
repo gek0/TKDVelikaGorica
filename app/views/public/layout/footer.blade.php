@@ -25,6 +25,13 @@
                                         </a>
                                     </li>
                                 @endif
+                                @if($info_data->instagram_url)
+                                    <li class="social-icon social-instagram" alt="Instagram" title="Instagram">
+                                        <a href="{{ $info_data->instagram_url }}" target="_blank">
+                                            <i class="fa fab fa-instagram fa-gig fa-fw"></i>
+                                        </a>
+                                    </li>
+                                @endif
                                 @if($info_data->youtube_url)
                                     <li class="social-icon social-youtube" alt="YouTube" title="YouTube">
                                         <a href="{{ $info_data->youtube_url }}" target="_blank">
