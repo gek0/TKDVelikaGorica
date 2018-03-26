@@ -29,6 +29,9 @@ Route::group(['before' => 'auth'], function() {
 		Route::get('o-klubu', ['as' => 'admin-about-club', 'uses' => 'AdminController@showAboutClub']);
 		Route::post('o-klubu', ['as' => 'admin-about-clubPOST', 'uses' => 'AdminController@updateAboutClub']);
 
+		Route::get('notifikacija', ['as' => 'admin-notification', 'uses' => 'AdminController@showNotification']);
+		Route::post('notifikacija', ['as' => 'admin-notificationPOST', 'uses' => 'AdminController@updateNotification']);
+
 		Route::get('obavijesti', ['as' => 'admin-news', 'uses' => 'NewsController@showNews']);
 		Route::get('obavijesti/nova', ['as' => 'admin-news-add', 'uses' => 'NewsController@showNewNewsForm']);
 		Route::post('obavijesti/nova', ['as' => 'admin-news-addPOST', 'uses' => 'NewsController@addNewNews']);

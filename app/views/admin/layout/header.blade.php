@@ -61,6 +61,7 @@
                             {{ HTML::smartRoute_link('admin/naslovnica', 'Naslovnica', '<i class="fa fas fa-home" aria-hidden="true"></i>') }}
                             {{ HTML::smartRoute_link('admin/o-nama', 'O nama', '<i class="fa fas fa-info" aria-hidden="true"></i>') }}
                             {{ HTML::smartRoute_link('admin/o-klubu', 'O klubu', '<i class="fa fas fa-info-circle" aria-hidden="true"></i>') }}
+                            {{ HTML::smartRoute_link('admin/notifikacija', 'Notifikacija', '<i class="fa fas fa-bullhorn" aria-hidden="true"></i>') }}
                             {{ HTML::smartRoute_link('admin/obavijesti', 'Obavijesti', '<i class="fa fas fa-pencil" aria-hidden="true"></i>') }}
                             {{ HTML::smartRoute_link('admin/kalendar', 'Kalendar', '<i class="fa fas fa-calendar" aria-hidden="true"></i>') }}
                             {{ HTML::smartRoute_link('admin/galerija', 'Galerija', '<i class="fa fas fa-camera" aria-hidden="true"></i>') }}

@@ -154,6 +154,17 @@ function closetags($html) {
 }
 
 /**
+ * @param $string
+ * @return mixed
+ * escape newline in html with javascript literal character
+ */
+function js_string_escape($string){
+    $pattern = '/(<br>)/i';
+    $replacement = '${1} \ ';
+    return preg_replace($pattern, $replacement, $string);
+}
+
+/**
  * @param $html
  * @param $length
  * @return string

@@ -97,6 +97,36 @@
 
 @stack('custom-news-vars')
 
+@if($notification_data['enabled'] === 'yes')
+    <div id="global-notification">
+        <a href="#" title="{{ $notification_data['title'] }}">
+            <i class="fa far fa-bullhorn fa-gig"></i>
+        </a>
+    </div>
+    <script>
+        jQuery(document).ready(function(){
+            /**
+             * show global notification
+             */
+            $("#global-notification").click(function(event){
+                event.preventDefault();
+                $(this).addClass('animated tada');
+                swal({
+                    title: '{{ $notification_data['title'] }}',
+                    html: '{{ json_encode(removeEmptyP(nl2p((new BBCParser)->parse($notification_data['body'])))) }}',
+                    showCloseButton: true,
+                    showCancelButton: false,
+                    focusConfirm: false,
+                    animation: false,
+                    customClass: 'animated bounceIn',
+                    confirmButtonText: '<i class="fa fa-thumbs-up"></i> Hvala',
+                    confirmButtonAriaLabel: 'Hvala'
+                })
+            });
+        });
+    </script>
+@endif
+
 <!-- scripts -->
 {{ HTML::script('js/skel.min.js', ['charset' => 'utf-8']) }}
 {{ HTML::script('js/classie.min.js', ['charset' => 'utf-8']) }}

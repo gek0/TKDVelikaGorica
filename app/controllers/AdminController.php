@@ -153,15 +153,15 @@ class AdminController extends BaseController
     }
 
     /**
-     * show admin about club
-     * @return mixed
-     */
+ * show admin about club
+ * @return mixed
+ */
     public function showAboutClub()
     {
         $about_club_data = AboutClub::first();
 
         return View::make('admin.about-club')->with(['page_title' => 'Administracija',
-                            'about_club_data' => $about_club_data
+            'about_club_data' => $about_club_data
         ]);
     }
 
@@ -199,6 +199,56 @@ class AdminController extends BaseController
         }
 
         return Redirect::to(route('admin-about-club'))->with(['success' => 'Sekcija "O klubu" je uspješno izmjenjena']);
+    }
+
+    /**
+     * show admin notification
+     * @return mixed
+     */
+    public function showNotification()
+    {
+        $notification_data = Notification::first();
+
+        return View::make('admin.notification-section')->with(['page_title' => 'Administracija',
+                                                    'notification_data' => $notification_data
+        ]);
+    }
+
+    /**
+     * update about notification
+     * @return mixed
+     */
+    public function updateNotification()
+    {
+        $form_data = Input::all();
+
+        //check if csrf token is valid
+        if(Session::token() != $form_data['_token']){
+            return Redirect::back()->withErrors('Nevažeći CSRF token!');
+        }
+
+        $validator = Validator::make($form_data, Notification::$rules, Notification::$messages);
+        //check validation results and category if ok
+        if($validator->fails()){
+            return Redirect::back()->withErrors($validator->getMessageBag()->toArray())->withInput();
+        }
+        else {
+            //only one record in database
+            $check_data = Notification::first();
+            if($check_data == null){
+                $notification = new Notification;
+            }
+            else{
+                $notification = $check_data;
+            }
+
+            $notification->title = $form_data['title'];
+            $notification->body = $form_data['body'];
+            $notification->enabled = $form_data['notification_status'];
+            $notification->save();
+        }
+
+        return Redirect::to(route('admin-notification'))->with(['success' => 'Sekcija "Notifikacija" je uspješno izmjenjena']);
     }
 
     /**

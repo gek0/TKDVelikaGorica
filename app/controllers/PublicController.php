@@ -12,6 +12,9 @@ class PublicController extends BaseController {
         // share info data to all views - used in footer and contact page
         $info_data = Info::first();
         View::share(['info_data' => $info_data]);
+
+        $notification_data = Notification::first();
+        View::share(['notification_data' => $notification_data]);
     }
 
     /**

@@ -1856,6 +1856,41 @@ body.single #wrapper-news {
 .nextContent:hover { right: 0; }
 
 /**
+* global notification
+*/
+#global-notification{
+    position: fixed;
+    z-index: 100;
+    top: 50%;
+    width: 50px; height: 100px;
+    line-height: 120px;
+    border: 1px solid rgba(255, 255, 255, .15);
+    background: rgba(237, 150, 0, 1);
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+    border-top-right-radius: 15px; -moz-border-top-right-radius: 15px; -webkit-border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px; -moz-border-bottom-right-radius: 15px; -webkit-border-bottom-right-radius: 15px;
+}
+
+#global-notification a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+}
+
+#global-notification{
+    left: -25px;
+}
+#global-notification:hover{ left: 0; }
+
+/**
 * footer
 */
 .red{
