@@ -78,7 +78,6 @@ $(document).ready(function() {
 });
 }(jQuery));
 
-
 jQuery(document).ready(function(){
     /**
      *   team containers

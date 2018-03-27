@@ -114,6 +114,8 @@
                 </div>
             </div>
         </form>
+
+        <div id="map-container-mobile" data-map-x="{{ $info_data->map_lat }}" data-map-y="{{ $info_data->map_lng }}" data-map-2-x="{{ $info_data->map_2_lat }}" data-map-2-y="{{ $info_data->map_2_lng }}" data-pin="{{ asset('css/assets/images/map-marker.png') }}" data-zoom="{{ getenv('DEFAULT_MAP_ZOOM_LEVEL') }}" data-tooltip-text="{{ getenv('WEB_NAME') }}" data-scrollwhell="0" data-draggable="1"></div>
     </div>
 </div> <!-- end container-contact-full-flex -->
 
