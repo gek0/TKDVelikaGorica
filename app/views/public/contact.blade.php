@@ -1,9 +1,8 @@
 @include('public.layout.header')
 
 <div class="container-contact-full-flex">
-    <div class="contact-full-flex-map" id="google_map" data-map-x="{{ $info_data->map_lat }}" data-map-y="{{ $info_data->map_lng }}" data-map-2-x="{{ $info_data->map_2_lat }}" data-map-2-y="{{ $info_data->map_2_lng }}" data-pin="{{ asset('css/assets/images/map-marker.png') }}" data-zoom="{{ getenv('DEFAULT_MAP_ZOOM_LEVEL') }}" data-tooltip-text="{{ getenv('WEB_NAME') }}" data-scrollwhell="0" data-draggable="1"></div>
-
-    <div class="wrap-contact-full-flex">
+    <div class="contact-full-flex-map" id="google_map" data-map-x="{{ $info_data->map_lat }}" data-map-y="{{ $info_data->map_lng }}" data-map-2-x="{{ $info_data->map_2_lat }}" data-map-2-y="{{ $info_data->map_2_lng }}" data-pin="{{ asset('css/assets/images/map-marker.png') }}" data-zoom="{{ getenv('DEFAULT_MAP_ZOOM_LEVEL') }}" data-tooltip-text="{{ $info_data->owner_contact_address }}" data-tooltip-2-text="{{ $info_data->owner_contact_address_2 }}" data-scrollwhell="0" data-draggable="1"></div>
+        <div class="wrap-contact-full-flex">
         {{ Form::open(['url' => route('contactPOST'), 'role' => 'form', 'id' => 'contact-form', 'class' => 'contact-full-flex-form validate-form']) }}
             <span class="full-flex-form-title">
                 <h1 class="to-animate text-center">{{ $page_title }}</h1>

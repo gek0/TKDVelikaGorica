@@ -30,5 +30,5 @@ return array(
     'NEWS_UPLOAD_DIR' => 'news_uploads',
     'COVER_UPLOAD_DIR' => 'cover_uploads',
     'ATHLETES_UPLOAD_DIR' => 'athletes_uploads',
-    'DEFAULT_MAP_ZOOM_LEVEL' => '13',
+    'DEFAULT_MAP_ZOOM_LEVEL' => '10',
 );
