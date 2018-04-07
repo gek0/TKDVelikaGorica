@@ -43,11 +43,41 @@
                         </div>
                         <div class="col-md-6 text-center sponsors">
                             <h5 class="inverted-title">Ovim putem se želimo zahvaliti</h5>
-                            <a href="http://www.nextgrupa.hr" target="_blank">
+                            <a href="http://www.nextgrupa.hr" target="_blank" title="Next grupa">
                                 <img src="{{ asset('sponsors/next-grupa.png') }}" class="img-responsive sponsor-img">
                             </a>
-                            <a href="https://shoebedo.com/hr/" target="_blank">
+                            <a href="https://shoebedo.com/hr/" target="_blank" title="ShoeBeDo">
                                 <img src="{{ asset('sponsors/shoebedo.png') }}" class="img-responsive sponsor-img">
+                            </a>
+                            <a href="http://www.cityportal.hr/" target="_blank" title="CityPortal">
+                                <img src="{{ asset('sponsors/cityportal.png') }}" class="img-responsive sponsor-img">
+                            </a>
+                            <a href="http://www.vgdanas.hr/" target="_blank" title="VGdanas">
+                                <img src="{{ asset('sponsors/vgdanas.png') }}" class="img-responsive sponsor-img">
+                            </a>
+                        </div>
+                        <div class="col-md-12 text-center sponsors">
+                            <h5 class="inverted-title">I veliko hvala</h5>
+                            <a href="http://www.gorica.hr" target="_blank" title="Grad Velika Gorica">
+                                <img src="{{ asset('sponsors/gradvg.png') }}" class="img-responsive sponsor-img">
+                            </a>
+                            <a href="http://www.zsugvg.hr" target="_blank" title="Zajednica sportskih udruga grada Velike Gorice">
+                                <img src="{{ asset('sponsors/zsu_vg.png') }}" class="img-responsive sponsor-img">
+                            </a>
+                            <a href="http://www.taekwondo.hr/" target="_blank" title="Hrvatski Taekwondo Savez">
+                                <img src="{{ asset('sponsors/hts.png') }}" class="img-responsive sponsor-img">
+                            </a>
+                            <a href="http://www.hoo.hr" target="_blank" title="Hrvatski olimpijski odbor">
+                                <img src="{{ asset('sponsors/hoo.png') }}" class="img-responsive sponsor-img">
+                            </a>
+                            <a href="https://worldtaekwondoeurope.org/" target="_blank" title="World Taekwondo Europe - European Taekwondo Union">
+                                <img src="{{ asset('sponsors/worldtkd.png') }}" class="img-responsive sponsor-img">
+                            </a>
+                            <a href="http://www.worldtaekwondo.org" target="_blank" title="World Taekwondo">
+                                <img src="{{ asset('sponsors/worldtkd.png') }}" class="img-responsive sponsor-img">
+                            </a>
+                            <a href="https://worldtkd.simplycompete.com" target="_blank" title="World Taekwondo GMS">
+                                <img src="{{ asset('sponsors/worldtkd.png') }}" class="img-responsive sponsor-img">
                             </a>
                         </div>
                     </div>
