@@ -57,7 +57,6 @@
                             </a>
                         </div>
                         <div class="col-md-12 text-center sponsors">
-                            <h5 class="inverted-title">I veliko hvala</h5>
                             <a href="http://www.gorica.hr" target="_blank" title="Grad Velika Gorica">
                                 <img src="{{ asset('sponsors/gradvg.png') }}" class="img-responsive sponsor-img">
                             </a>
@@ -71,13 +70,13 @@
                                 <img src="{{ asset('sponsors/hoo.png') }}" class="img-responsive sponsor-img">
                             </a>
                             <a href="https://worldtaekwondoeurope.org/" target="_blank" title="World Taekwondo Europe - European Taekwondo Union">
-                                <img src="{{ asset('sponsors/worldtkd.png') }}" class="img-responsive sponsor-img">
+                                <img src="{{ asset('sponsors/worldtkd_europe.png') }}" class="img-responsive sponsor-img">
                             </a>
                             <a href="http://www.worldtaekwondo.org" target="_blank" title="World Taekwondo">
                                 <img src="{{ asset('sponsors/worldtkd.png') }}" class="img-responsive sponsor-img">
                             </a>
                             <a href="https://worldtkd.simplycompete.com" target="_blank" title="World Taekwondo GMS">
-                                <img src="{{ asset('sponsors/worldtkd.png') }}" class="img-responsive sponsor-img">
+                                <img src="{{ asset('sponsors/simply_compete.png') }}" class="img-responsive sponsor-img">
                             </a>
                         </div>
                     </div>

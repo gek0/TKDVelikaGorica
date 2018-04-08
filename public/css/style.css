@@ -2225,18 +2225,10 @@ blockquote:after{
 .sponsor-img{
   margin: auto .5em;
   display: inline-block;
-  filter: gray;
-  -webkit-filter: grayscale(1);
   -webkit-transition: all .5s ease-out;
   -moz-transition: all .5s ease-out;
   transition: all .5s ease-out;
 }
-
-.sponsor-img:hover{
-  filter: none;
-  -webkit-filter: grayscale(0);
-}
-
 hr.faint{
   background-color: rgba(75, 75, 75, 1);
   border-top: 2px dotted rgba(75, 75, 75, 1);
