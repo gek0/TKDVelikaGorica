@@ -9,7 +9,7 @@ Complete public frontpage can be changed from administration panel.
 
 ## Web preview
 
-Live page is available @ https://www.tkd-velikagorica.hr//
+Live page is available @ https://www.tkd-velikagorica.hr/
 
 ![alt tag](https://i.imgur.com/3ujD1Cd.png)
 
